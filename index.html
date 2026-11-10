@@ -162,14 +162,13 @@ footer a:hover{color:var(--text)}
   html{scroll-behavior:auto}
 }
 </style>
-<!-- CHECKOUT STATUS (build note, updated 2026-11-08 ~23:55 MT): The three buy.stripe.com/test_
-     links below are REAL Stripe Payment Links in TEST mode, created and read back from Stripe
-     after Bode re-authorized the connector (test context acct_1Tlyr3QwvBP2o8ID):
-     PaperTrail Academy $49 plink_1UZmPnQwvBP2o8IDb6YO457k · Invoice Chaser Pro $19
-     plink_1UZmPnQwvBP2o8IDd2etd4v7 · Backtest Honesty Starter Kit $7 plink_1UZmPnQwvBP2o8ID1If38FOe.
-     They accept test cards only — no real money can move until live-mode links replace them,
-     which waits on Stripe business verification (KYC) on the live account. The visible preview
-     note on the page stays until the site is deployed and the live/test decision is final. -->
+<!-- CHECKOUT STATUS (build note, updated 2026-11-09 ~22:40 MT): LIVE. The three buy.stripe.com
+     links below are real Stripe Payment Links in LIVE mode on the verified Quietpaid account
+     (acct_1Tlyr3QwvBP2o8ID, business verification approved 2026-11-09, payout bank = SoFi
+     checking on file): PaperTrail Academy $49 plink_1Ua7daQwvBP2o8IDZ5mLUvJT (price_1Ua7dSQwvBP2o8IDEEmINZof) -
+     Invoice Chaser Pro $19 plink_1Ua7dbQwvBP2o8IDSmEUiuoO (price_1Ua7dVQwvBP2o8ID8mNUp6Fs) -
+     Backtest Honesty Starter Kit $7 plink_1Ua7dcQwvBP2o8IDfOH57DqT (price_1Ua7dYQwvBP2o8ID9rVkNpSq).
+     Digital delivery is fulfilled by email from hello@quietpaid.com after payment (see Delivery). -->
 </head>
 <body>
 <div class="ambient" aria-hidden="true"></div>
@@ -196,7 +195,7 @@ footer a:hover{color:var(--text)}
   <div class="wrap hero">
     <span class="eyebrow"><i></i> Quietpaid · a small digital shop</span>
     <h1>Tools that tell you the truth <span class="grad">before you pay.</span></h1>
-    <p class="sub">Quietpaid sells a small set of digital products for traders and small businesses — each one described plainly, priced once, and delivered as an instant download. No subscriptions. No earnings claims. Our flagship course publishes its own losing results on page one.</p>
+    <p class="sub">Quietpaid sells a small set of digital products for traders and small businesses — each one described plainly, priced once, and delivered by email download. No subscriptions. No earnings claims. Our flagship course publishes its own losing results on page one.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#products">See the products</a>
       <a class="btn btn-ghost" href="#honest">Read the honest part</a>
@@ -226,7 +225,7 @@ footer a:hover{color:var(--text)}
       <div class="sec-head reveal">
         <span class="kicker">The catalogue</span>
         <h2>Four products. That's the whole shop.</h2>
-        <p>Checkout runs on Stripe's secure payment page, and after payment your download is delivered automatically — no account to create, nothing else to buy. <strong>Site preview:</strong> the checkout buttons activate once the store's Stripe connection is re-authorized; to order before then, email <a href="mailto:hello@quietpaid.com" style="color:var(--accent)">hello@quietpaid.com</a>.</p>
+        <p>Checkout runs on Stripe's secure payment page — no account to create, nothing else to buy. After payment, your download link is emailed to you from <a href="mailto:hello@quietpaid.com" style="color:var(--accent)">hello@quietpaid.com</a> (usually within the hour, always within one business day).</p>
       </div>
 
       <div class="grid">
@@ -235,7 +234,7 @@ footer a:hover{color:var(--text)}
         <article class="card reveal">
           <span class="tag">Flagship course · Trading education</span>
           <h3>PaperTrail Academy</h3>
-          <div class="price-row"><span class="price">$49</span><span class="price-note">one-time · instant download (ZIP)</span></div>
+          <div class="price-row"><span class="price">$49</span><span class="price-note">one-time · download (ZIP)</span></div>
           <p class="desc">A complete, self-paced course on how small automated trading bots are designed, backtested, and risk-managed — taught with the real materials and the full results of an actual bot program, including where it fell short.</p>
           <ul>
             <li><strong>721 pages</strong> across 11 PDFs: Foundations, Core, the five Bots, Operations, Handbooks, Labs, News case studies, and an Advanced track</li>
@@ -245,8 +244,8 @@ footer a:hover{color:var(--text)}
             <li><strong>Full backtest report included whole</strong>, with every caveat — see the disclosure below before you buy</li>
           </ul>
           <div class="foot">
-            <a class="buy" href="https://buy.stripe.com/test_3cI8wRfsV8ly5Ej4ZLbEA01" data-checkout-link="test-live">Buy PaperTrail Academy — $49</a>
-            <p class="fineprint">Checkout by Stripe (activating — see preview note above) · Education only — not financial advice</p>
+            <a class="buy" href="https://buy.stripe.com/28EaEZ3Kd59m1o3fEpbEA00" data-checkout-link="live">Buy PaperTrail Academy — $49</a>
+            <p class="fineprint">Secure checkout by Stripe · Education only — not financial advice</p>
           </div>
         </article>
 
@@ -254,7 +253,7 @@ footer a:hover{color:var(--text)}
         <article class="card reveal">
           <span class="tag">AI skill pack · Small business</span>
           <h3>Invoice Chaser Pro</h3>
-          <div class="price-row"><span class="price">$19</span><span class="price-note">one-time · instant download (ZIP)</span></div>
+          <div class="price-row"><span class="price">$19</span><span class="price-note">one-time · download (ZIP)</span></div>
           <p class="desc">Four plain-text AI skills that draft polite-to-firm invoice follow-ups in your voice, build a dated reminder plan for each invoice, and help you set up payment plans. The AI drafts — you review and send everything yourself.</p>
           <ul>
             <li><strong>Invoice Chaser</strong> — one ready-to-send follow-up at the right firmness for how overdue the invoice is</li>
@@ -264,8 +263,8 @@ footer a:hover{color:var(--text)}
             <li>Plus a worked example with clearly labeled sample data, and five copy-and-send templates</li>
           </ul>
           <div class="foot">
-            <a class="buy" href="https://buy.stripe.com/test_28EaEZ3Kd59m1o3fEpbEA00" data-checkout-link="test-live">Buy Invoice Chaser Pro — $19</a>
-            <p class="fineprint">Checkout by Stripe (activating — see preview note above) · Works with ChatGPT, Claude, or similar · Not software</p>
+            <a class="buy" href="https://buy.stripe.com/3cI8wRfsV8ly5Ej4ZLbEA01" data-checkout-link="live">Buy Invoice Chaser Pro — $19</a>
+            <p class="fineprint">Secure checkout by Stripe · Works with ChatGPT, Claude, or similar · Not software</p>
           </div>
         </article>
 
@@ -283,8 +282,8 @@ footer a:hover{color:var(--text)}
             <li>A 7-day paper-trade journal starter and a pre-flight checklist</li>
           </ul>
           <div class="foot">
-            <a class="buy" href="https://buy.stripe.com/test_28E14pbcF45i2s7csdbEA02" data-checkout-link="test-live">Buy the Starter Kit — $7</a>
-            <p class="fineprint">Checkout by Stripe (activating — see preview note above) · About 90 minutes, or 20 for the core · Education only</p>
+            <a class="buy" href="https://buy.stripe.com/28E14pbcF45i2s7csdbEA02" data-checkout-link="live">Buy the Starter Kit — $7</a>
+            <p class="fineprint">Secure checkout by Stripe · About 90 minutes, or 20 for the core · Education only</p>
           </div>
         </article>
 
@@ -330,8 +329,8 @@ footer a:hover{color:var(--text)}
         <h2>Three steps, no account, no surprises</h2>
       </div>
       <div class="steps">
-        <div class="step reveal"><div class="num">1</div><h3>Pay on Stripe's page</h3><p>Once activated, the Buy button takes you to a secure Stripe checkout for exactly the price on the card. Quietpaid never sees or stores your card details.</p></div>
-        <div class="step reveal"><div class="num">2</div><h3>Download instantly</h3><p>Right after a paid order, Stripe shows your download link — and emails it to you as a receipt backup. Save the file; it's yours to keep.</p></div>
+        <div class="step reveal"><div class="num">1</div><h3>Pay on Stripe's page</h3><p>The Buy button takes you to a secure Stripe checkout for exactly the price on the card. Quietpaid never sees or stores your card details.</p></div>
+        <div class="step reveal"><div class="num">2</div><h3>Get your download by email</h3><p>After payment, we email your download link from hello@quietpaid.com — usually within the hour, always within one business day. Save the file; it's yours to keep.</p></div>
         <div class="step reveal"><div class="num">3</div><h3>Stuck? Email a human</h3><p>If a file won't open or a download fails, email <a href="mailto:hello@quietpaid.com" style="color:var(--accent)">hello@quietpaid.com</a> and we'll sort it out. The refund policy below applies to every order.</p></div>
       </div>
     </div>
@@ -347,7 +346,7 @@ footer a:hover{color:var(--text)}
       <div class="policy-grid">
         <div class="policy reveal">
           <h3>Delivery</h3>
-          <p>Digital products are delivered by instant download immediately after payment, via the Stripe checkout confirmation screen and a receipt email containing the same link. (Checkout buttons are in preview while the store's Stripe connection is re-authorized; orders by email in the meantime are delivered the same way, after an invoice is paid.)</p>
+          <p>Digital products are delivered by email: after your Stripe payment, your download link is sent from hello@quietpaid.com — usually within the hour, always within one business day. If it hasn't arrived, check spam, then email us and we'll resend it.</p>
           <p>The formatting service is different by design: you email first, timing is confirmed in writing, and only then is a Stripe invoice sent. The formatted .docx is delivered through the same email thread after the integrity check passes.</p>
         </div>
         <div class="policy reveal">
@@ -382,11 +381,11 @@ footer a:hover{color:var(--text)}
       <div class="reveal">
         <details>
           <summary>How do I receive my purchase?</summary>
-          <p>Instantly for paid orders: after Stripe confirms payment, the confirmation screen shows your download link and the same link arrives by email. No account, and no waiting for anything to ship. (During this site preview, checkout buttons are not yet accepting payments — email us to order.)</p>
+          <p>By email: after Stripe confirms your payment, your download link is sent from hello@quietpaid.com — usually within the hour, always within one business day. No account needed, and nothing ships physically.</p>
         </details>
         <details>
           <summary>Is checkout secure? Do you store my card?</summary>
-          <p>Checkout happens entirely on Stripe's hosted payment page (buttons activate once the store's Stripe connection is re-authorized). Quietpaid never receives or stores your card number.</p>
+          <p>Checkout happens entirely on Stripe's hosted payment page. Quietpaid never receives or stores your card number.</p>
         </details>
         <details>
           <summary>Will PaperTrail Academy make me profitable?</summary>
