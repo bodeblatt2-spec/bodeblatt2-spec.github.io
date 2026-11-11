@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quietpaid — Honest tools for traders &amp; small businesses</title>
 <meta name="description" content="Quietpaid sells plainly-described digital tools: PaperTrail Academy, Invoice Chaser Pro, the Backtest Honesty Starter Kit, and a $99 flat document formatting service. Real products, real prices, no earnings claims.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quietpaid">
+<meta property="og:title" content="Quietpaid — Honest tools for traders &amp; small businesses">
+<meta property="og:description" content="Plainly-described digital products: PaperTrail Academy ($49), Invoice Chaser Pro ($19), and the Backtest Honesty Starter Kit ($7). No subscriptions, no earnings claims — the flagship course publishes its own losing results on page one.">
+<meta property="og:url" content="https://quietpaid.com/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Quietpaid — Honest tools for traders &amp; small businesses">
+<meta name="twitter:description" content="PaperTrail Academy ($49), Invoice Chaser Pro ($19), Backtest Honesty Starter Kit ($7). Real products, real prices, no earnings claims.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0f14'/%3E%3Cpath d='M21.5 20.8a7.5 7.5 0 1 1 1.6-5.3' stroke='%2334d399' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='2.4' fill='%2334d399'/%3E%3C/svg%3E">
 <style>
 :root{
@@ -110,6 +118,12 @@ section{padding:64px 0}
 .buy:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(52,211,153,.32)}
 .card .fineprint{color:var(--faint);font-size:.82rem;text-align:center;margin-top:11px}
 
+/* ---------- which-one strip ---------- */
+.compare{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:26px 30px}
+.compare h3{font-size:1.08rem;margin-bottom:10px}
+.compare p{color:var(--muted);font-size:.95rem;padding:5px 0}
+.compare p strong{color:var(--text)}
+
 /* ---------- disclosure band ---------- */
 .disclosure{border:1px solid rgba(251,191,36,.35);background:linear-gradient(180deg,rgba(251,191,36,.07),rgba(251,191,36,.03));border-radius:22px;padding:34px 36px}
 .disclosure h3{font-size:1.25rem;margin-bottom:12px;display:flex;gap:10px;align-items:center}
@@ -168,7 +182,13 @@ footer a:hover{color:var(--text)}
      checking on file): PaperTrail Academy $49 plink_1Ua7daQwvBP2o8IDZ5mLUvJT (price_1Ua7dSQwvBP2o8IDEEmINZof) -
      Invoice Chaser Pro $19 plink_1Ua7dbQwvBP2o8IDSmEUiuoO (price_1Ua7dVQwvBP2o8ID8mNUp6Fs) -
      Backtest Honesty Starter Kit $7 plink_1Ua7dcQwvBP2o8IDfOH57DqT (price_1Ua7dYQwvBP2o8ID9rVkNpSq).
-     Digital delivery is fulfilled by email from hello@quietpaid.com after payment (see Delivery). -->
+     Digital delivery is fulfilled by email from hello@quietpaid.com after payment (see Delivery).
+     CONVERSION PASS (2026-11-11): OG/Twitter tags, product-card anchor ids, a hero router
+     line, a which-one comparison strip, delivery timing in the buy fineprint, and a
+     kit-vs-Academy ladder FAQ added. Buy hrefs and prices NOT touched — all three links
+     re-verified active in live Stripe the same night; zero live charges on the account
+     as of that check. The page still has NO analytics — no funnel step above "paid" is
+     measurable until Bode approves adding a lightweight counter (e.g. GoatCounter). -->
 </head>
 <body>
 <div class="ambient" aria-hidden="true"></div>
@@ -200,7 +220,7 @@ footer a:hover{color:var(--text)}
       <a class="btn btn-primary" href="#products">See the products</a>
       <a class="btn btn-ghost" href="#honest">Read the honest part</a>
     </div>
-    <p class="hero-note"><strong>Four products. Fixed prices. Download by email.</strong> Questions before you buy? <a href="mailto:hello@quietpaid.com" style="color:var(--accent)">hello@quietpaid.com</a></p>
+    <p class="hero-note"><strong>New here?</strong> Traders: start with the <a href="#starter-kit" style="color:var(--accent)">$7 Starter Kit</a> or the <a href="#papertrail-academy" style="color:var(--accent)">full $49 Academy</a>. Freelancers &amp; small businesses: <a href="#invoice-chaser-pro" style="color:var(--accent)">Invoice Chaser Pro, $19</a>. Questions before you buy? <a href="mailto:hello@quietpaid.com" style="color:var(--accent)">hello@quietpaid.com</a></p>
   </div>
 
   <!-- PRINCIPLES -->
@@ -231,7 +251,7 @@ footer a:hover{color:var(--text)}
       <div class="grid">
 
         <!-- PaperTrail Academy -->
-        <article class="card reveal">
+        <article class="card reveal" id="papertrail-academy">
           <span class="tag">Flagship course · Trading education</span>
           <h3>PaperTrail Academy</h3>
           <div class="price-row"><span class="price">$49</span><span class="price-note">one-time · download (ZIP)</span></div>
@@ -245,12 +265,12 @@ footer a:hover{color:var(--text)}
           </ul>
           <div class="foot">
             <a class="buy" href="https://buy.stripe.com/28EaEZ3Kd59m1o3fEpbEA00" data-checkout-link="live">Buy PaperTrail Academy — $49</a>
-            <p class="fineprint">Secure checkout by Stripe · Education only — not financial advice</p>
+            <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · Education only — not financial advice</p>
           </div>
         </article>
 
         <!-- Invoice Chaser Pro -->
-        <article class="card reveal">
+        <article class="card reveal" id="invoice-chaser-pro">
           <span class="tag">AI skill pack · Small business</span>
           <h3>Invoice Chaser Pro</h3>
           <div class="price-row"><span class="price">$19</span><span class="price-note">one-time · download (ZIP)</span></div>
@@ -264,12 +284,12 @@ footer a:hover{color:var(--text)}
           </ul>
           <div class="foot">
             <a class="buy" href="https://buy.stripe.com/3cI8wRfsV8ly5Ej4ZLbEA01" data-checkout-link="live">Buy Invoice Chaser Pro — $19</a>
-            <p class="fineprint">Secure checkout by Stripe · Works with ChatGPT, Claude, or similar · Not software</p>
+            <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · Works with ChatGPT, Claude, or similar · Not software</p>
           </div>
         </article>
 
         <!-- Backtest Honesty Starter Kit -->
-        <article class="card reveal">
+        <article class="card reveal" id="starter-kit">
           <span class="tag">Mini workbook · Trading education</span>
           <h3>Backtest Honesty Starter Kit</h3>
           <div class="price-row"><span class="price">$7</span><span class="price-note">one-time · download (PDF)</span></div>
@@ -283,12 +303,12 @@ footer a:hover{color:var(--text)}
           </ul>
           <div class="foot">
             <a class="buy" href="https://buy.stripe.com/28E14pbcF45i2s7csdbEA02" data-checkout-link="live">Buy the Starter Kit — $7</a>
-            <p class="fineprint">Secure checkout by Stripe · About 90 minutes, or 20 for the core · Education only</p>
+            <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · About 90 minutes, or 20 for the core · Education only</p>
           </div>
         </article>
 
         <!-- Formatting service -->
-        <article class="card reveal">
+        <article class="card reveal" id="formatting-service">
           <span class="tag">Service · Document formatting</span>
           <h3>Word Document Formatting</h3>
           <div class="price-row"><span class="price">$99</span><span class="price-note">flat · one document, up to 15 simple pages</span></div>
@@ -306,6 +326,14 @@ footer a:hover{color:var(--text)}
           </div>
         </article>
 
+      </div>
+
+      <div class="compare reveal">
+        <h3>Not sure which one?</h3>
+        <p><strong>Just want to grade backtest claims?</strong> The <a href="#starter-kit" style="color:var(--accent)">Backtest Honesty Starter Kit</a> — $7, about 90 minutes, stands on its own.</p>
+        <p><strong>Want the whole method?</strong> <a href="#papertrail-academy" style="color:var(--accent)">PaperTrail Academy</a> — $49, the complete bot-building course the Starter Kit is drawn from: design, backtesting, risk, operations, labs.</p>
+        <p><strong>Chasing late invoices, not trades?</strong> <a href="#invoice-chaser-pro" style="color:var(--accent)">Invoice Chaser Pro</a> — $19, four AI skills you review and send yourself.</p>
+        <p><strong>Have a messy Word document instead?</strong> The <a href="#formatting-service" style="color:var(--accent)">formatting service</a> — $99 flat, ordered by email, timing confirmed before you pay.</p>
       </div>
     </div>
   </section>
@@ -390,6 +418,10 @@ footer a:hover{color:var(--text)}
         <details>
           <summary>Will PaperTrail Academy make me profitable?</summary>
           <p>No — and nothing on this page claims it will. It's an education product that shows a real bot program's full record, including that its bots did not beat the S&amp;P 500 (about 11% a year since 2021 vs about 15.5%). Read the disclosure above; it's the same one printed on page one of the products.</p>
+        </details>
+        <details>
+          <summary>Should I start with the $7 Starter Kit or go straight to the $49 Academy?</summary>
+          <p>Start with the kit if you mainly want to learn how to grade a backtest claim — it's the Academy's backtest-checking material in miniature, written to stand alone, and it includes a worked teardown of PaperTrail's own results. Go straight to the Academy if you want the full method: how the bots are designed, tested, risk-managed, and run, with the complete course, labs, and exams. Both carry the same honest disclosure — read it above before either one.</p>
         </details>
         <details>
           <summary>What do I need to use Invoice Chaser Pro?</summary>
