@@ -94,7 +94,7 @@ nav.mainnav .dot{color:var(--gold);font-size:.6rem}
 /* ---------- hero ---------- */
 .hero{position:relative;text-align:center;padding:88px clamp(20px,3.2vw,44px) 30px;overflow:hidden}
 .hero::before{content:"";position:absolute;left:50%;top:-150px;transform:translateX(-50%);width:920px;height:500px;background:radial-gradient(ellipse at 50% 0%,rgba(255,233,178,.18),rgba(255,233,178,0) 65%);pointer-events:none}
-.hero .shaft{position:absolute;top:-70px;width:430px;height:620px;pointer-events:none;background:linear-gradient(180deg,rgba(255,233,178,.2) 0%,rgba(255,233,178,.07) 48%,rgba(255,233,178,0) 88%);clip-path:polygon(44% 0,56% 0,100% 100%,0 100%);filter:blur(20px);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%,#000 70%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 30%,#000 70%,transparent 100%);animation:shaft 12s ease-in-out infinite alternate}
+.hero .shaft{position:absolute;top:-80px;width:560px;height:700px;pointer-events:none;background:radial-gradient(ellipse 32% 24% at 50% 8%,rgba(255,241,207,.24),rgba(255,236,190,.11) 52%,rgba(255,233,178,0) 78%),radial-gradient(ellipse 54% 56% at 50% 50%,rgba(255,233,178,.13),rgba(255,233,178,.05) 55%,rgba(255,233,178,0) 82%),radial-gradient(ellipse 74% 90% at 50% 56%,rgba(255,226,160,.05),rgba(255,226,160,0) 74%);animation:shaft 12s ease-in-out infinite alternate}
 .hero .shaft.l{left:2%;transform:rotate(13deg)}
 .hero .shaft.r{right:2%;transform:rotate(-13deg);animation-delay:-6s}
 @keyframes shaft{from{opacity:.62}to{opacity:1}}
@@ -139,7 +139,7 @@ section{padding:64px 0 8px}
 .grid::before{content:"";position:absolute;inset:-40px -70px;background:radial-gradient(760px 480px at 50% 46%,rgba(201,162,74,.055),rgba(201,162,74,0) 70%);pointer-events:none}
 @media(max-width:820px){.grid{grid-template-columns:1fr}}
 .piece{display:flex;flex-direction:column;position:relative}
-.card{position:relative;flex:1;background:linear-gradient(180deg,rgba(255,244,214,.08) 0%,rgba(255,244,214,.03) 30%,rgba(246,224,170,.10) 58%,rgba(240,214,140,.12) 78%,rgba(238,205,130,.14) 100%),radial-gradient(135% 150px at 50% 115%,rgba(240,206,116,.30),rgba(238,200,110,.10) 52%,rgba(238,200,110,0) 72%),linear-gradient(163deg,rgba(238,217,160,.10),rgba(240,231,208,.025) 38%,rgba(12,9,6,.42) 75%,rgba(0,0,0,.5));border:1px solid var(--line);border-radius:12px;padding:38px 40px 30px;display:flex;flex-direction:column;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,244,214,.14);transition:transform .45s cubic-bezier(.2,.9,.3,1.12),border-color .3s,box-shadow .45s}
+.card{position:relative;flex:1;background-image:linear-gradient(115deg,rgba(255,255,255,0) 4%,rgba(255,244,214,.05) 30%,rgba(255,250,232,.14) 50%,rgba(255,244,214,.05) 70%,rgba(255,255,255,0) 96%),linear-gradient(180deg,rgba(255,244,214,.08) 0%,rgba(255,244,214,.03) 30%,rgba(246,224,170,.10) 58%,rgba(240,214,140,.12) 78%,rgba(238,205,130,.14) 100%),radial-gradient(135% 150px at 50% 115%,rgba(240,206,116,.30),rgba(238,200,110,.10) 52%,rgba(238,200,110,0) 72%),linear-gradient(163deg,rgba(238,217,160,.10),rgba(240,231,208,.025) 38%,rgba(12,9,6,.42) 75%,rgba(0,0,0,.5));background-size:100% 56%,auto,auto,auto;background-position:50% 100%,0 0,0 0,0 0;background-repeat:no-repeat;border:1px solid var(--line);border-radius:12px;padding:38px 40px 30px;display:flex;flex-direction:column;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,244,214,.14);transition:transform .45s cubic-bezier(.2,.9,.3,1.12),border-color .3s,box-shadow .45s}
 .card::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 260px at 50% -80px,rgba(255,236,190,.3),rgba(238,217,160,0) 70%);pointer-events:none}
 .card::after{content:"";position:absolute;inset:0;background:linear-gradient(118deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,.02) 30%,rgba(255,255,255,0) 48%,rgba(255,241,210,.07) 68%,rgba(255,255,255,0) 86%);pointer-events:none}
 .card:hover{transform:translateY(-8px);border-color:rgba(238,217,160,.8);box-shadow:inset 0 1px 0 rgba(255,244,214,.18),0 30px 60px rgba(0,0,0,.6),0 0 44px rgba(201,162,74,.16)}
@@ -150,7 +150,7 @@ section{padding:64px 0 8px}
 .card p.desc{color:var(--cream2);font-size:1.02rem;text-align:center;margin:14px auto 0;max-width:460px}
 .card .specs{text-align:center;color:var(--muted);font-size:.86rem;letter-spacing:.05em;margin-top:12px}
 .card .specs b{color:var(--gold-hi);font-weight:500}
-.card .price{font-family:var(--serif);font-weight:700;font-size:2.6rem;text-align:center;margin:18px 0 4px}
+.card .price{font-family:var(--serif);font-weight:700;font-size:2.6rem;text-align:center;margin:18px 0 4px;background:radial-gradient(ellipse 46% 120% at 50% 50%,rgba(255,240,200,.13),rgba(255,240,200,.05) 55%,rgba(255,240,200,0) 78%)}
 .card .price-note{text-align:center;font-family:var(--sans);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);font-weight:600}
 .card .foot{margin-top:auto;padding-top:20px;position:relative}
 .buy{display:flex;align-items:center;justify-content:center;width:100%;text-decoration:none;font-family:var(--sans);font-weight:600;letter-spacing:.06em;font-size:.92rem;padding:14px 18px;border-radius:7px;border:1px solid var(--gold);background:linear-gradient(180deg,#eed9a0,#c9a24a 55%,#a37f2c);color:#171106;box-shadow:0 5px 20px rgba(201,162,74,.22),inset 0 1px 0 rgba(255,255,255,.5);transition:all .2s}
@@ -175,7 +175,7 @@ section{padding:64px 0 8px}
   background:radial-gradient(ellipse at 50% 36%,#231a10 0%,#12100c 55%,#060504 100%);border-bottom:1px solid rgba(238,217,160,.22)}
 .pedestal .disc{position:absolute;left:50%;transform:translateX(-50%);top:0;width:92%;height:30px;border-radius:50%;z-index:2;background-color:#0a0705;
   background-image:
-    radial-gradient(ellipse at 50% 46%,rgba(255,240,205,.5) 0%,rgba(255,232,170,.24) 34%,rgba(255,224,160,.07) 52%,rgba(255,224,160,0) 68%),
+    radial-gradient(ellipse at 50% 46%,rgba(255,247,222,.65) 0%,rgba(255,241,198,.56) 15%,rgba(255,234,174,.38) 29%,rgba(255,227,161,.19) 41%,rgba(255,224,160,.08) 54%,rgba(255,224,160,0) 70%),
     var(--marble);
   background-size:auto,cover;
   background-position:0 0,50% 50%;
