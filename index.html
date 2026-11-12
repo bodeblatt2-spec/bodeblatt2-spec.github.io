@@ -16,188 +16,195 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230d0b08'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23c9a24a' stroke-width='3'/%3E%3Ctext x='32' y='41' font-family='Georgia,serif' font-weight='700' font-size='21' fill='%23f0e7d0' text-anchor='middle'%3EQP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,650;0,9..144,900;1,9..144,650;1,9..144,900&family=Archivo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#0d0b08; --paper2:#080604; --card:#171310;
-  --ink:#f0e7d0; --ink2:#ded1b2;
-  --muted:#a79c7f; --faint:#776f5c;
-  --red:#c9a24a; --red-soft:rgba(201,162,74,.13);
-  --gold:#c9a24a;
-  --rule:rgba(240,231,208,.75); --rule-soft:rgba(240,231,208,.28); --rule-faint:rgba(240,231,208,.13);
-  --serif:"Fraunces",Georgia,"Times New Roman",serif;
-  --body:"Newsreader",Georgia,serif;
+  --bg:#0a0806; --bg2:#060403;
+  --panel:rgba(240,231,208,.025);
+  --gold:#c9a24a; --gold-hi:#eed9a0; --gold-deep:#8a6a24;
+  --cream:#f2ead6; --cream2:#ddd2b4;
+  --muted:#a89d80; --faint:#776f5c;
+  --line:rgba(201,162,74,.4); --line-soft:rgba(201,162,74,.18); --line-faint:rgba(240,231,208,.09);
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
   --sans:"Archivo",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.62;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-/* paper grain */
-body::before{content:"";position:fixed;inset:-60px;z-index:0;pointer-events:none;opacity:.5;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
+body{background:var(--bg2);color:var(--cream);font-family:var(--sans);font-weight:300;line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* atmosphere: layered spotlights + smoke over near-black */
+.atmo{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(1100px 520px at 50% -120px, rgba(238,217,160,.13), rgba(238,217,160,0) 62%),
+    radial-gradient(900px 700px at 88% 30%, rgba(201,162,74,.05), rgba(201,162,74,0) 60%),
+    radial-gradient(900px 700px at 8% 64%, rgba(201,162,74,.045), rgba(201,162,74,0) 60%),
+    radial-gradient(1400px 900px at 50% 118%, rgba(138,106,36,.07), rgba(138,106,36,0) 65%),
+    linear-gradient(180deg,#0d0a07 0%,#080604 46%,#050403 100%)}
+.atmo::after{content:"";position:absolute;inset:-60px;opacity:.4;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
   animation:grain 9s steps(6) infinite}
 @keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-18px,10px)}40%{transform:translate(12px,-14px)}60%{transform:translate(-8px,-8px)}80%{transform:translate(16px,12px)}}
-::selection{background:var(--red);color:var(--paper)}
+::selection{background:var(--gold);color:#0a0806}
 a{color:inherit}
-main,header,footer{position:relative;z-index:1}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-.smallcaps{font-family:var(--sans);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:600}
-
-/* ---------- stamps ---------- */
-.stamp{display:inline-block;font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.14em;
-  color:var(--red);border:3px solid var(--red);border-radius:6px;padding:.28em .6em .2em;line-height:1;
-  transform:rotate(-7deg);box-shadow:inset 0 0 0 1px rgba(201,162,74,.4);opacity:.92;
-  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='r'%3E%3CfeTurbulence baseFrequency='.6' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .92 .08'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23r)'/%3E%3C/svg%3E");
-  -webkit-mask-size:120px;mask-size:120px}
-.stamp.slam{animation:slam .45s cubic-bezier(.2,2.4,.4,1) both}
-@keyframes slam{0%{transform:rotate(-7deg) scale(2.6);opacity:0}60%{opacity:1}100%{transform:rotate(-7deg) scale(1);opacity:.92}}
+header,main,footer{position:relative;z-index:1}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.goldtext{background:linear-gradient(100deg,#a37f2c 0%,#e9d193 38%,#f7ecc8 50%,#e9d193 62%,#a37f2c 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 9s ease-in-out infinite}
+@keyframes sheen{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+.kicker{font-family:var(--sans);letter-spacing:.34em;text-transform:uppercase;font-size:.72rem;font-weight:600;color:var(--gold);text-align:center}
+.rule-diamond{display:flex;align-items:center;justify-content:center;gap:12px;margin:22px auto 0}
+.rule-diamond::before,.rule-diamond::after{content:"";height:1px;width:min(210px,32vw);background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.rule-diamond span{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none;box-shadow:0 0 10px rgba(201,162,74,.8)}
 
 /* ---------- header ---------- */
-header{border-bottom:3px double var(--rule);background:var(--paper)}
-.masthead{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding:20px 0 14px;flex-wrap:wrap}
-.wordmark{font-family:var(--serif);font-weight:900;font-size:2.15rem;letter-spacing:-.5px;text-decoration:none;line-height:1;display:flex;align-items:center;gap:14px}
-.wordmark .stamp{font-size:.62rem;padding:.34em .55em .26em}
-.mast-meta{font-family:var(--sans);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;gap:22px;align-items:center}
-.mast-meta a{text-decoration:none;font-weight:600}
-.mast-meta a:hover{color:var(--red)}
-#soundToggle{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:none;border:1.5px solid var(--rule);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink)}
-#soundToggle:hover{border-color:var(--red);color:var(--red)}
-@media(max-width:700px){.mast-meta a{display:none}}
+header{border-bottom:1px solid var(--line-faint);background:rgba(8,6,4,.72);backdrop-filter:blur(8px)}
+.masthead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0;flex-wrap:wrap}
+.wordmark{font-family:var(--serif);font-weight:600;font-size:1.85rem;letter-spacing:.01em;text-decoration:none;line-height:1;color:var(--gold-hi)}
+.wordmark i{font-style:normal;color:var(--gold)}
+nav.mainnav{display:flex;gap:14px;align-items:center;font-size:.86rem;letter-spacing:.06em;color:var(--cream2)}
+nav.mainnav a{text-decoration:none;font-weight:400}
+nav.mainnav a:hover{color:var(--gold-hi)}
+nav.mainnav .dot{color:var(--gold);font-size:.6rem}
+.mast-actions{display:flex;gap:10px;align-items:center}
+.pill{font-family:var(--sans);font-size:.8rem;letter-spacing:.08em;font-weight:600;text-decoration:none;border:1px solid var(--gold);color:var(--gold-hi);border-radius:999px;padding:8px 18px;background:transparent;cursor:pointer;transition:all .2s}
+.pill:hover{background:var(--gold);color:#0a0806}
+.pill.ghost{border-color:var(--line-soft);color:var(--muted)}
+.pill.ghost:hover{border-color:var(--gold);color:#0a0806}
+@media(max-width:820px){nav.mainnav{display:none}}
 
 /* ---------- hero ---------- */
-.hero{padding:64px 0 30px;text-align:center;border-bottom:1.5px solid var(--rule)}
-.hero .dossier{font-family:var(--sans);letter-spacing:.22em;text-transform:uppercase;font-size:.74rem;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:16px;justify-content:center}
-.hero .dossier::before,.hero .dossier::after{content:"";height:1.5px;background:var(--rule);flex:0 0 90px}
-.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.7rem,7.2vw,5.2rem);line-height:.98;letter-spacing:-1px;margin:26px auto 8px;max-width:940px;text-transform:uppercase}
-.hero h1 .line2{display:block;font-style:italic;text-transform:none;font-weight:650;letter-spacing:-.5px;color:var(--red);font-size:.82em;margin-top:6px}
-.hero .sub{max-width:660px;margin:22px auto 0;font-size:1.13rem;color:var(--ink2)}
-.hero .sub strong{font-weight:500}
-.hero-stamps{display:flex;justify-content:center;gap:34px;margin:34px 0 6px;min-height:44px}
-.hero-stamps .stamp{font-size:1.05rem}
-.hero-stamps .stamp.alt{transform:rotate(6deg)}
-.hero-stamps .stamp.alt.slam{animation-name:slamAlt}
-@keyframes slamAlt{0%{transform:rotate(6deg) scale(2.6);opacity:0}60%{opacity:1}100%{transform:rotate(6deg) scale(1);opacity:.92}}
-.hero-note{margin-top:20px;color:var(--muted);font-size:1rem}
-.hero-note a{color:var(--red);font-weight:500;text-decoration-thickness:1px;text-underline-offset:3px}
-.hero-note a:hover{background:var(--red-soft)}
+.hero{position:relative;text-align:center;padding:84px 0 30px;overflow:hidden}
+.hero .seal-watermark{position:absolute;left:50%;top:8px;transform:translateX(-50%);width:min(560px,92vw);opacity:.07;pointer-events:none;filter:blur(.4px)}
+.hero .dossier{position:relative;font-family:var(--sans);letter-spacing:.3em;text-transform:uppercase;font-size:.7rem;font-weight:600;color:var(--muted)}
+.hero h1{position:relative;font-family:var(--serif);font-weight:700;font-size:clamp(2.55rem,6.6vw,4.7rem);line-height:1.04;letter-spacing:.015em;margin:30px auto 0;max-width:1020px;text-transform:uppercase}
+.hero .sub{position:relative;max-width:640px;margin:26px auto 0;font-size:1.06rem;color:var(--cream2);font-weight:300}
+.hero .sub strong{font-weight:500;color:var(--cream)}
+.hero-cta{position:relative;display:flex;gap:16px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-family:var(--sans);font-weight:600;letter-spacing:.05em;font-size:.95rem;padding:15px 32px;border-radius:7px;transition:all .22s;border:1px solid var(--gold)}
+.btn.gold{background:linear-gradient(180deg,#eed9a0,#c9a24a 55%,#a37f2c);color:#171106;box-shadow:0 6px 26px rgba(201,162,74,.28),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn.gold:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(201,162,74,.4),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn.outline{background:transparent;color:var(--gold-hi)}
+.btn.outline:hover{background:rgba(201,162,74,.1);transform:translateY(-2px)}
+.hero-note{position:relative;margin:22px auto 0;color:var(--muted);font-size:.95rem;max-width:620px}
+.hero-note a{color:var(--gold-hi);text-decoration:none;border-bottom:1px solid var(--line-soft)}
+.hero-note a:hover{border-bottom-color:var(--gold)}
+
+/* ---------- claims strip ---------- */
+.claims{border-top:1px solid var(--line-faint);border-bottom:1px solid var(--line-faint);margin-top:56px;padding:15px 0;text-align:center;font-family:var(--sans);letter-spacing:.3em;text-transform:uppercase;font-size:.7rem;font-weight:600;color:var(--gold)}
+.claims span{margin:0 10px;white-space:nowrap}
+.claims .sep{color:var(--faint);margin:0}
 
 /* ---------- principles ---------- */
-.principles{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1.5px solid var(--rule)}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:8px}
 @media(max-width:820px){.principles{grid-template-columns:1fr}}
-.principle{padding:26px 26px 24px;border-left:1px solid var(--rule-faint)}
-.principle:first-child{border-left:none;padding-left:2px}
-@media(max-width:820px){.principle{border-left:none;border-top:1px solid var(--rule-faint);padding-left:2px}.principle:first-child{border-top:none}}
-.principle .no{font-family:var(--serif);font-style:italic;color:var(--red);font-size:.95rem}
-.principle h3{font-family:var(--serif);font-weight:650;font-size:1.18rem;margin:4px 0 6px}
-.principle p{color:var(--muted);font-size:.99rem}
+.principle{padding:30px 30px 6px;text-align:center}
+.principle .rn{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--gold)}
+.principle h3{font-family:var(--serif);font-weight:600;font-size:1.22rem;margin:7px 0 7px;color:var(--cream)}
+.principle p{color:var(--muted);font-size:.95rem;max-width:300px;margin:0 auto}
 
 /* ---------- sections ---------- */
-section{padding:58px 0}
-.sec-head{margin-bottom:36px}
-.sec-head .kicker{display:flex;align-items:center;gap:14px;font-family:var(--sans);letter-spacing:.22em;text-transform:uppercase;font-size:.74rem;font-weight:700;color:var(--red)}
-.sec-head .kicker::after{content:"";height:1.5px;background:var(--rule);flex:1}
-.sec-head h2{font-family:var(--serif);font-weight:900;font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.05;letter-spacing:-.5px;margin-top:12px}
-.sec-head p{color:var(--muted);margin-top:10px;max-width:700px;font-size:1.05rem}
-.sec-head p a{color:var(--red)}
+section{padding:64px 0 8px}
+.sec-head{text-align:center;margin-bottom:44px}
+.sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.85rem,3.8vw,2.6rem);line-height:1.1;margin-top:14px;color:var(--cream)}
+.sec-head p{color:var(--muted);margin:12px auto 0;max-width:680px;font-size:1rem}
+.sec-head p a{color:var(--gold-hi)}
 
-/* ---------- product index cards ---------- */
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+/* ---------- pedestal products ---------- */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 30px}
 @media(max-width:820px){.grid{grid-template-columns:1fr}}
-.card{position:relative;background:var(--card);border:1.5px solid var(--rule);padding:28px 30px 26px;display:flex;flex-direction:column;
-  box-shadow:6px 8px 24px rgba(0,0,0,.55),0 0 0 1px rgba(201,162,74,.07);transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .3s ease}
-.card::before{content:"";position:absolute;inset:6px;border:1px dashed var(--rule-soft);pointer-events:none}
-.card.tilt-l{transform:rotate(-.5deg)} .card.tilt-r{transform:rotate(.45deg)}
-.card:hover{transform:rotate(0deg) translateY(-5px);box-shadow:10px 16px 34px rgba(0,0,0,.6),0 0 22px rgba(201,162,74,.13)}
-.card .cardno{font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);font-weight:600;display:flex;justify-content:space-between}
-.card .cardno .kind{color:var(--red)}
-.card h3{font-family:var(--serif);font-weight:900;font-size:1.62rem;letter-spacing:-.3px;line-height:1.12;margin:10px 0 2px}
-.card .price-row{display:flex;align-items:baseline;gap:12px;margin:6px 0 12px;border-bottom:1.5px solid var(--rule);padding-bottom:12px}
-.card .price{font-family:var(--serif);font-weight:900;font-size:2.15rem;color:var(--ink)}
-.card .price-note{font-family:var(--sans);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.card p.desc{color:var(--ink2);font-size:1.01rem;margin-bottom:14px}
-.card ul{list-style:none;margin-bottom:22px}
-.card ul li{color:var(--muted);font-size:.97rem;padding:5px 0 5px 24px;position:relative;border-bottom:1px dotted var(--rule-faint)}
-.card ul li:last-child{border-bottom:none}
-.card ul li::before{content:"✓";position:absolute;left:2px;top:5px;color:var(--red);font-weight:700;font-family:var(--sans);font-size:.85rem}
-.card ul li strong{color:var(--ink);font-weight:500}
-.card .foot{margin-top:auto;position:relative}
-.buy{position:relative;display:flex;align-items:center;justify-content:center;gap:9px;width:100%;text-decoration:none;
-  font-family:var(--sans);font-weight:700;letter-spacing:.06em;font-size:.98rem;text-transform:uppercase;
-  background:var(--ink);color:var(--paper);padding:15px 18px;border:1.5px solid var(--ink);
-  transition:background .2s,color .2s,transform .15s}
-.buy:hover{background:var(--red);border-color:var(--red);color:#0d0b08;transform:translateY(-1px)}
+.piece{display:flex;flex-direction:column}
+.card{position:relative;flex:1;background:linear-gradient(180deg,rgba(238,217,160,.055),rgba(240,231,208,.015) 42%,rgba(0,0,0,.25));border:1px solid var(--line);border-radius:12px;padding:32px 34px 28px;display:flex;flex-direction:column;overflow:hidden;transition:transform .35s cubic-bezier(.2,.9,.3,1.15),border-color .3s,box-shadow .35s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 190px at 50% -60px,rgba(238,217,160,.16),rgba(238,217,160,0) 70%);pointer-events:none}
+.card:hover{transform:translateY(-6px);border-color:rgba(238,217,160,.75);box-shadow:0 24px 50px rgba(0,0,0,.55),0 0 34px rgba(201,162,74,.13)}
+.card .icon{height:58px;display:flex;align-items:flex-start;justify-content:center;margin-bottom:8px}
+.card .icon svg{width:56px;height:56px;stroke:var(--gold-hi);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 7px rgba(201,162,74,.45))}
+.card h3{font-family:var(--serif);font-weight:600;font-size:1.58rem;text-align:center;color:var(--cream);line-height:1.15}
+.card .kindline{text-align:center;font-family:var(--sans);letter-spacing:.26em;text-transform:uppercase;font-size:.64rem;font-weight:600;color:var(--gold);margin-top:8px}
+.card p.desc{color:var(--cream2);font-size:.99rem;text-align:center;margin:14px auto 0;max-width:430px}
+.card .specs{text-align:center;color:var(--muted);font-size:.83rem;letter-spacing:.05em;margin-top:12px}
+.card .specs b{color:var(--gold-hi);font-weight:500}
+.card .price{font-family:var(--serif);font-weight:700;font-size:2.3rem;text-align:center;margin:18px 0 4px}
+.card .price-note{text-align:center;font-family:var(--sans);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.card .foot{margin-top:auto;padding-top:20px;position:relative}
+.buy{display:flex;align-items:center;justify-content:center;width:100%;text-decoration:none;font-family:var(--sans);font-weight:600;letter-spacing:.06em;font-size:.92rem;padding:14px 18px;border-radius:7px;border:1px solid var(--gold);background:linear-gradient(180deg,#eed9a0,#c9a24a 55%,#a37f2c);color:#171106;box-shadow:0 5px 20px rgba(201,162,74,.22),inset 0 1px 0 rgba(255,255,255,.5);transition:all .2s}
+.buy:hover{transform:translateY(-1px);box-shadow:0 9px 28px rgba(201,162,74,.38),inset 0 1px 0 rgba(255,255,255,.5)}
 .buy:active{transform:translateY(1px)}
-.card .fineprint{color:var(--faint);font-size:.85rem;text-align:center;margin-top:11px;font-family:var(--body);font-style:italic}
+.buy.ghostbtn{background:transparent;color:var(--gold-hi);box-shadow:none}
+.buy.ghostbtn:hover{background:rgba(201,162,74,.1)}
+.card .fineprint{color:var(--faint);font-size:.82rem;text-align:center;margin-top:11px;font-weight:300}
+.pedestal{position:relative;height:52px;margin-top:14px}
+.pedestal .disc{position:absolute;left:50%;transform:translateX(-50%);top:0;width:78%;height:26px;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 42%,#5a4a26 0%,#2c2313 46%,#14100a 78%,#0a0806 100%);
+  box-shadow:0 0 34px rgba(238,217,160,.34),0 0 8px rgba(238,217,160,.4),inset 0 2px 7px rgba(238,217,160,.4)}
+.pedestal .body{position:absolute;left:50%;transform:translateX(-50%);top:12px;width:78%;height:38px;
+  background:linear-gradient(180deg,#241c10 0%,#171208 55%,#0a0806 100%);border-radius:0 0 10px 10px;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 30%);mask-image:linear-gradient(180deg,transparent 0,#000 30%)}
+.pedestal .plaque{position:absolute;left:50%;transform:translateX(-50%);top:24px;background:#0d0a06;border:1px solid var(--line-soft);padding:5px 14px 4px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;font-weight:600;color:var(--gold-hi);white-space:nowrap;z-index:2}
 
-/* ---------- compare ledger ---------- */
-.compare{margin-top:30px;border:1.5px solid var(--rule);background:var(--card);padding:8px 30px 14px;box-shadow:6px 8px 24px rgba(0,0,0,.55)}
-.compare h3{font-family:var(--serif);font-weight:900;font-size:1.3rem;padding:16px 0 6px}
-.compare p{color:var(--muted);font-size:1rem;padding:9px 0;border-top:1px dotted var(--rule-soft)}
-.compare p strong{color:var(--ink);font-weight:500}
-.compare p a{color:var(--red);font-weight:500}
+/* ---------- compare ---------- */
+.compare{margin-top:36px;border:1px solid var(--line-soft);border-radius:12px;background:var(--panel);padding:10px 34px 16px}
+.compare h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;text-align:center;padding:20px 0 8px;color:var(--cream)}
+.compare p{color:var(--muted);font-size:.98rem;padding:10px 0;border-top:1px solid var(--line-faint);text-align:center}
+.compare p strong{color:var(--cream);font-weight:500}
+.compare p a{color:var(--gold-hi);font-weight:400}
 
-/* ---------- disclosure (the ink page) ---------- */
-.disclosure{background:#050403;color:#efe8d3;padding:40px 42px;position:relative;border:1.5px solid rgba(201,162,74,.55);box-shadow:0 0 34px rgba(201,162,74,.13)}
-.disclosure h3{font-family:var(--serif);font-weight:900;font-size:1.5rem;line-height:1.2;margin-bottom:16px;display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
-.disclosure h3 .stamp{border-color:#c9a24a;color:#c9a24a;font-size:.68rem;transform:rotate(5deg);box-shadow:inset 0 0 0 1px rgba(201,162,74,.4)}
-.disclosure p{color:#d9d0b4;font-size:1.03rem;margin-bottom:13px;max-width:860px}
+/* ---------- disclosure ---------- */
+.disclosure{position:relative;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,rgba(238,217,160,.05),rgba(0,0,0,.35));padding:42px 44px;overflow:hidden}
+.disclosure::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 240px at 50% -80px,rgba(238,217,160,.13),rgba(238,217,160,0) 70%);pointer-events:none}
+.disclosure h3{position:relative;font-family:var(--serif);font-weight:600;font-size:1.5rem;line-height:1.25;margin-bottom:16px;color:var(--cream);display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.sealstamp{display:inline-block;font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.64rem;color:var(--gold-hi);border:2.5px solid var(--gold);border-radius:6px;padding:.34em .6em .26em;line-height:1;transform:rotate(5deg);box-shadow:inset 0 0 0 1px rgba(201,162,74,.35);opacity:.94;flex:none;margin-top:4px}
+.disclosure p{position:relative;color:var(--cream2);font-size:1rem;margin-bottom:13px;max-width:880px}
 .disclosure p:last-child{margin-bottom:0}
 .disclosure strong{color:#fff;font-weight:500}
 
 /* ---------- steps ---------- */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1.5px solid var(--rule);background:var(--card)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 @media(max-width:820px){.steps{grid-template-columns:1fr}}
-.step{padding:26px;border-left:1px solid var(--rule-faint)}
-.step:first-child{border-left:none}
-@media(max-width:820px){.step{border-left:none;border-top:1px solid var(--rule-faint)}.step:first-child{border-top:none}}
-.step .num{font-family:var(--serif);font-style:italic;font-weight:900;font-size:2rem;color:var(--red);line-height:1}
-.step h3{font-family:var(--serif);font-weight:650;font-size:1.15rem;margin:8px 0 6px}
-.step p{color:var(--muted);font-size:.98rem}
-.step p a{color:var(--red)}
+.step{border:1px solid var(--line-faint);border-radius:12px;background:var(--panel);padding:28px;text-align:center}
+.step .num{font-family:var(--serif);font-weight:700;font-size:2.1rem;line-height:1}
+.step h3{font-family:var(--serif);font-weight:600;font-size:1.14rem;margin:10px 0 6px;color:var(--cream)}
+.step p{color:var(--muted);font-size:.94rem}
+.step p a{color:var(--gold-hi)}
 
 /* ---------- policies ---------- */
-.policy-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.policy-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 @media(max-width:820px){.policy-grid{grid-template-columns:1fr}}
-.policy{border-top:3px double var(--rule);padding-top:18px}
-.policy h3{font-family:var(--serif);font-weight:900;font-size:1.22rem;margin-bottom:10px}
-.policy p,.policy li{color:var(--muted);font-size:.99rem}
+.policy{border-top:1px solid var(--line);padding-top:18px}
+.policy h3{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin-bottom:10px;color:var(--cream)}
+.policy p,.policy li{color:var(--muted);font-size:.96rem}
 .policy p{margin-bottom:10px}
 .policy p:last-child{margin-bottom:0}
 .policy ul{list-style:none}
 .policy ul li{padding:4px 0 4px 20px;position:relative}
-.policy ul li::before{content:"—";position:absolute;left:0;color:var(--red)}
+.policy ul li::before{content:"—";position:absolute;left:0;color:var(--gold)}
 
 /* ---------- faq ---------- */
-details{border-top:1px solid var(--rule-soft);padding:16px 2px}
-details:last-of-type{border-bottom:1px solid var(--rule-soft)}
-details summary{cursor:pointer;font-family:var(--serif);font-weight:650;font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+details{border-top:1px solid var(--line-faint);padding:16px 2px}
+details:last-of-type{border-bottom:1px solid var(--line-faint)}
+details summary{cursor:pointer;font-family:var(--serif);font-weight:600;font-size:1.06rem;color:var(--cream);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
 details summary::-webkit-details-marker{display:none}
-details summary::after{content:"+";color:var(--red);font-size:1.4rem;font-weight:400;flex:none;font-family:var(--sans)}
+details summary::after{content:"+";color:var(--gold);font-size:1.35rem;font-weight:400;flex:none;font-family:var(--sans)}
 details[open ] summary::after{content:"–"}
-details p{color:var(--muted);font-size:.99rem;margin-top:9px;max-width:720px}
-details p a{color:var(--red)}
+details p{color:var(--muted);font-size:.96rem;margin-top:9px;max-width:720px}
+details p a{color:var(--gold-hi)}
 
 /* ---------- footer ---------- */
-footer{border-top:3px double var(--rule);margin-top:26px;padding:40px 0 52px;background:var(--paper2)}
+footer{border-top:1px solid var(--line-faint);margin-top:70px;padding:44px 0 54px;background:rgba(0,0,0,.35)}
 .foot-grid{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;align-items:flex-start}
-footer .wordmark{font-size:1.7rem}
-footer p{color:var(--muted);font-size:.95rem}
-.foot-links{display:flex;gap:24px;flex-wrap:wrap;font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
-.foot-links a{text-decoration:none;color:var(--ink2)}
-.foot-links a:hover{color:var(--red)}
-.copyright{margin-top:26px;color:var(--faint);font-size:.88rem;border-top:1px solid var(--rule-faint);padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.copyright .colophon{font-style:italic}
+footer .wordmark{font-size:1.55rem}
+footer p{color:var(--muted);font-size:.93rem}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap;font-family:var(--sans);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.foot-links a{text-decoration:none;color:var(--cream2)}
+.foot-links a:hover{color:var(--gold-hi)}
+.copyright{margin-top:28px;color:var(--faint);font-size:.85rem;border-top:1px solid var(--line-faint);padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.copyright .colophon{font-family:var(--serif);font-style:italic}
 
 /* ---------- reveal ---------- */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.3,1)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.3,1)}
 .reveal.in{opacity:1;transform:none}
-.card.reveal.in.tilt-l{transform:rotate(-.5deg)} .card.reveal.in.tilt-r{transform:rotate(.45deg)}
-.card.reveal.in.tilt-l:hover,.card.reveal.in.tilt-r:hover{transform:rotate(0deg) translateY(-5px)}
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1;transform:none;transition:none}
-  body::before{animation:none}
+  .atmo::after{animation:none}
+  .goldtext{animation:none}
   html{scroll-behavior:auto}
-  .stamp.slam{animation:none}
 }
 </style>
 <!-- CHECKOUT STATUS (build note, updated 2026-11-09 ~22:40 MT): LIVE. The three buy.stripe.com
@@ -212,27 +219,35 @@ footer p{color:var(--muted);font-size:.95rem}
      kit-vs-Academy ladder FAQ added. Buy hrefs and prices NOT touched.
      ANALYTICS (2026-11-11): Cloudflare Web Analytics beacon added before </body> (token
      1284c6a1a5844a82a84c671ac314f024) — visits/referrers measurable; Buy clicks are not.
-     EDITORIAL REDESIGN (2026-11-11, Bode's first pick): full visual rebuild in the
-     paper/editorial system — cream paper, ink type, red PAID stamps, index-card catalogue.
+     EDITORIAL BUILD (2026-11-11): full visual rebuild in the paper system — superseded the
+     same evening (below).
+     LUXURY REBUILD (2026-11-11, built TO the approved luxury concept image as a spec, after
+     Bode found the first luxury attempt was a palette swap, not the picture): matte black
+     atmosphere with spotlight pools, Playfair Didone gold headline, thin gold line icons,
+     glass product cards on glowing marble pedestals with fact plaques, gold claims strip.
+     The concept's invented prices and its fake trust line were NOT carried over — real
+     prices, real claims only ("REAL PRODUCTS · REAL PRICES · NO EARNINGS CLAIMS"), and the
+     headline is ours: "Tools that tell the truth." The gold-stamp seal appears in the hero
+     as an inline SVG watermark (the push route carries text files only, no binaries).
      Copy, prices, buy hrefs, anchors, and the analytics beacon carried over unchanged.
-     Motion: scroll reveals, stamp slams, card straighten-on-hover. Sound: tiny WebAudio
-     stamp/click effects behind a header toggle, only after the visitor's first interaction.
-     LUXURY SWITCH (2026-11-11, Bode's call the same evening): he reversed the store to the
-     luxury direction — dark luxury is what the trading audience responds to. Same page,
-     same words, same links: palette re-struck as matte black + gold (stamps are now gold
-     seals), and the logo kept its stamp identity re-struck in gold foil on black. -->
+     Motion: scroll reveals, headline sheen, hover lifts and glows. Sound: tiny WebAudio
+     stamp/click effects behind a header toggle, only after the visitor's first interaction. -->
 </head>
 <body>
+<div class="atmo" aria-hidden="true"></div>
 
 <header>
   <div class="wrap masthead">
-    <a class="wordmark" href="#top" aria-label="Quietpaid home">Quietpaid <span class="stamp" aria-hidden="true">Paid</span></a>
-    <div class="mast-meta">
-      <a href="#products">Products</a>
-      <a href="#honest">The honest part</a>
-      <a href="#policies">Policies</a>
+    <a class="wordmark" href="#top">Quiet<i>paid</i></a>
+    <nav class="mainnav" aria-label="Main">
+      <a href="#products">Products</a><span class="dot">◆</span>
+      <a href="#honest">The honest part</a><span class="dot">◆</span>
+      <a href="#policies">Policies</a><span class="dot">◆</span>
       <a href="#faq">FAQ</a>
-      <button id="soundToggle" type="button" aria-pressed="true" title="Toggle page sounds">Sound: on</button>
+    </nav>
+    <div class="mast-actions">
+      <a class="pill" href="#products">Browse products</a>
+      <button class="pill ghost" id="soundToggle" type="button" aria-pressed="true" title="Toggle page sounds">Sound: on</button>
     </div>
   </div>
 </header>
@@ -241,32 +256,36 @@ footer p{color:var(--muted);font-size:.95rem}
 
   <!-- HERO -->
   <div class="wrap hero">
+    <svg class="seal-watermark" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" fill="none" stroke="#c9a24a" stroke-width="2.5"/><circle cx="100" cy="100" r="84" fill="none" stroke="#c9a24a" stroke-width="1.4"/><text x="100" y="126" text-anchor="middle" font-family="Playfair Display,Georgia,serif" font-weight="700" font-size="72" fill="#c9a24a">QP</text></svg>
     <p class="dossier">One-time purchase · Delivered by email · No subscriptions · No earnings claims</p>
-    <h1>Tools that tell the truth.<span class="line2">Quietly, paid, done.</span></h1>
-    <p class="sub">Quietpaid sells a small set of digital products for traders and small businesses — each one described plainly, priced once, and delivered by email download. <strong>Our flagship course publishes its own losing results on page one.</strong></p>
-    <div class="hero-stamps" aria-hidden="true">
-      <span class="stamp" data-stamp>Paid</span>
-      <span class="stamp alt" data-stamp>No hype</span>
-      <span class="stamp" data-stamp>Yours to keep</span>
+    <h1><span class="goldtext">Tools that tell<br>the truth</span></h1>
+    <div class="rule-diamond" aria-hidden="true"><span></span></div>
+    <p class="sub">Digital tools for traders and small businesses — described plainly, priced once, and delivered by email. <strong>Our flagship course publishes its own losing results on page one.</strong></p>
+    <div class="hero-cta">
+      <a class="btn gold" href="#products">Browse the products</a>
+      <a class="btn outline" href="#honest">Read the honest part</a>
     </div>
     <p class="hero-note"><strong>New here?</strong> Traders: start with the <a href="#starter-kit">$7 Starter Kit</a> or the <a href="#papertrail-academy">full $49 Academy</a>. Freelancers &amp; small businesses: <a href="#invoice-chaser-pro">Invoice Chaser Pro, $19</a>. Questions before you buy? <a href="mailto:hello@quietpaid.com">hello@quietpaid.com</a></p>
+    <div class="claims" aria-label="Store principles">
+      <span>Real products</span><span class="sep">·</span><span>Real prices</span><span class="sep">·</span><span>No earnings claims</span><span class="sep">·</span><span>No subscriptions</span>
+    </div>
   </div>
 
   <!-- PRINCIPLES -->
   <div class="wrap">
     <div class="principles">
       <div class="principle reveal">
-        <span class="no">No. 1 —</span>
+        <span class="rn">— I —</span>
         <h3>Real products, ready now</h3>
         <p>Everything below exists, is finished, and is delivered as a file you keep. Nothing is a pre-order or a waitlist.</p>
       </div>
       <div class="principle reveal">
-        <span class="no">No. 2 —</span>
+        <span class="rn">— II —</span>
         <h3>One price, no upsells</h3>
         <p>The price on the card is the whole price. No tiers, no order bumps, no subscription quietly attached.</p>
       </div>
       <div class="principle reveal">
-        <span class="no">No. 3 —</span>
+        <span class="rn">— III —</span>
         <h3>Claims we can back up</h3>
         <p>No testimonials we can't verify, no income screenshots, no "results may vary" fine-print games. If we can't show it, we don't say it.</p>
       </div>
@@ -277,88 +296,84 @@ footer p{color:var(--muted);font-size:.95rem}
   <section id="products">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="kicker">The catalogue</span>
-        <h2>Four products. That's the whole shop.</h2>
+        <span class="kicker">The collection</span>
+        <h2>Four pieces. That's the whole shop.</h2>
         <p>Checkout runs on Stripe's secure payment page — no account to create, nothing else to buy. After payment, your download link is emailed to you from <a href="mailto:hello@quietpaid.com">hello@quietpaid.com</a> (usually within the hour, always within one business day).</p>
       </div>
 
       <div class="grid">
 
         <!-- PaperTrail Academy -->
-        <article class="card tilt-l reveal" id="papertrail-academy">
-          <div class="cardno"><span>Card No. 01</span><span class="kind">Flagship course · Trading education</span></div>
-          <h3>PaperTrail Academy</h3>
-          <div class="price-row"><span class="price">$49</span><span class="price-note">one-time · download (ZIP)</span></div>
-          <p class="desc">A complete, self-paced course on how small automated trading bots are designed, backtested, and risk-managed — taught with the real materials and the full results of an actual bot program, including where it fell short.</p>
-          <ul>
-            <li><strong>721 pages</strong> across 11 PDFs: Foundations, Core, the five Bots, Operations, Handbooks, Labs, News case studies, and an Advanced track</li>
-            <li><strong>560-question</strong> quiz workbook with a separate answer key</li>
-            <li><strong>Offline exams</strong> — self-grading HTML that works with no internet and no account</li>
-            <li><strong>Trading Lab</strong> — an interactive practice lab with bundled sample data</li>
-            <li><strong>Full backtest report included whole</strong>, with every caveat — see the disclosure below before you buy</li>
-          </ul>
-          <div class="foot">
-            <a class="buy" href="https://buy.stripe.com/28EaEZ3Kd59m1o3fEpbEA00" data-checkout-link="live">Buy PaperTrail Academy — $49</a>
-            <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · Education only — not financial advice</p>
-          </div>
-        </article>
+        <div class="piece reveal">
+          <article class="card" id="papertrail-academy">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 56 56"><polyline points="6,40 18,30 26,35 40,18"/><circle cx="6" cy="40" r="2.6"/><circle cx="18" cy="30" r="2.6"/><circle cx="26" cy="35" r="2.6"/><circle cx="40" cy="18" r="2.6"/><path d="M38 34 L50 38 V48 C50 51 44 53 41 54 C38 53 32 51 32 48 V38 Z"/><polyline points="37.5,44 40.2,46.8 44.8,41.5"/></svg></div>
+            <h3>PaperTrail Academy</h3>
+            <p class="kindline">Flagship course · Trading education</p>
+            <p class="desc">A complete, self-paced course on how small automated trading bots are designed, backtested, and risk-managed — taught with the real materials and full results of an actual bot program, including where it fell short.</p>
+            <p class="specs"><b>721 pages</b> · 11 PDFs · <b>560-question</b> workbook + answer key · offline self-grading exams · Trading Lab · full backtest report included</p>
+            <p class="price"><span class="goldtext">$49</span></p>
+            <p class="price-note">One-time · Download (ZIP)</p>
+            <div class="foot">
+              <a class="buy" href="https://buy.stripe.com/28EaEZ3Kd59m1o3fEpbEA00" data-checkout-link="live">Buy PaperTrail Academy — $49</a>
+              <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · Education only — not financial advice</p>
+            </div>
+          </article>
+          <div class="pedestal" aria-hidden="true"><div class="body"></div><div class="disc"></div><span class="plaque">Foundations · Advanced</span></div>
+        </div>
 
         <!-- Invoice Chaser Pro -->
-        <article class="card tilt-r reveal" id="invoice-chaser-pro">
-          <div class="cardno"><span>Card No. 02</span><span class="kind">AI skill pack · Small business</span></div>
-          <h3>Invoice Chaser Pro</h3>
-          <div class="price-row"><span class="price">$19</span><span class="price-note">one-time · download (ZIP)</span></div>
-          <p class="desc">Four plain-text AI skills that draft polite-to-firm invoice follow-ups in your voice, build a dated reminder plan for each invoice, and help you set up payment plans. The AI drafts — you review and send everything yourself.</p>
-          <ul>
-            <li><strong>Invoice Chaser</strong> — one ready-to-send follow-up at the right firmness for how overdue the invoice is</li>
-            <li><strong>Reminder Sequence Builder</strong> — a dated plan per invoice: pre-due, due date, 7 / 14 / 30 / 45 / 60 days</li>
-            <li><strong>Payment Plan &amp; Escalation Helper</strong> — written plans and firm final notices, using only next steps you choose</li>
-            <li><strong>Weekly Receivables Check-In</strong> — a 15-minute routine that sorts, totals, and ranks what to chase</li>
-            <li>Plus a worked example with clearly labeled sample data, and five copy-and-send templates</li>
-          </ul>
-          <div class="foot">
-            <a class="buy" href="https://buy.stripe.com/3cI8wRfsV8ly5Ej4ZLbEA01" data-checkout-link="live">Buy Invoice Chaser Pro — $19</a>
-            <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · Works with ChatGPT, Claude, or similar · Not software</p>
-          </div>
-        </article>
+        <div class="piece reveal">
+          <article class="card" id="invoice-chaser-pro">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 56 56"><path d="M14 6 H38 L44 12 V42 H26"/><path d="M38 6 V12 H44"/><line x1="20" y1="18" x2="36" y2="18"/><line x1="20" y1="25" x2="36" y2="25"/><line x1="20" y1="32" x2="29" y2="32"/><circle cx="40" cy="41" r="9"/><polyline points="35.8,41.2 38.8,44.2 44.2,38"/></svg></div>
+            <h3>Invoice Chaser Pro</h3>
+            <p class="kindline">AI skill pack · Small business</p>
+            <p class="desc">Four plain-text AI skills that draft polite-to-firm invoice follow-ups in your voice, build a dated reminder plan for each invoice, and help you set up payment plans. The AI drafts — you review and send everything yourself.</p>
+            <p class="specs"><b>4 skills</b> — Chaser · Reminder Sequence Builder · Payment Plan &amp; Escalation Helper · Weekly Receivables Check-In · worked example + <b>5 templates</b></p>
+            <p class="price"><span class="goldtext">$19</span></p>
+            <p class="price-note">One-time · Download (ZIP)</p>
+            <div class="foot">
+              <a class="buy" href="https://buy.stripe.com/3cI8wRfsV8ly5Ej4ZLbEA01" data-checkout-link="live">Buy Invoice Chaser Pro — $19</a>
+              <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · Works with ChatGPT, Claude, or similar · Not software</p>
+            </div>
+          </article>
+          <div class="pedestal" aria-hidden="true"><div class="body"></div><div class="disc"></div><span class="plaque">Draft · Review · Send</span></div>
+        </div>
 
         <!-- Backtest Honesty Starter Kit -->
-        <article class="card tilt-r reveal" id="starter-kit">
-          <div class="cardno"><span>Card No. 03</span><span class="kind">Mini workbook · Trading education</span></div>
-          <h3>Backtest Honesty Starter Kit</h3>
-          <div class="price-row"><span class="price">$7</span><span class="price-note">one-time · download (PDF)</span></div>
-          <p class="desc">A PaperTrail Academy mini workbook: how to read any trading backtest, spot the red flags in under 20 minutes, and score a claim before you spend another dollar on it. Self-contained — you don't need the full Academy to use it.</p>
-          <ul>
-            <li><strong>The six questions</strong> to ask of any backtest — and what silence means</li>
-            <li><strong>A full worked teardown</strong>: two claims scored, including PaperTrail's own</li>
-            <li><strong>Printable Red-Flag Checklist</strong> — five sections of tells, with a scoring guide</li>
-            <li><strong>Four worksheets</strong>: scorecard, drawdown math, cost-drag estimator, position sizing</li>
-            <li>A 7-day paper-trade journal starter and a pre-flight checklist</li>
-          </ul>
-          <div class="foot">
-            <a class="buy" href="https://buy.stripe.com/28E14pbcF45i2s7csdbEA02" data-checkout-link="live">Buy the Starter Kit — $7</a>
-            <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · About 90 minutes, or 20 for the core · Education only</p>
-          </div>
-        </article>
+        <div class="piece reveal">
+          <article class="card" id="starter-kit">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 56 56"><circle cx="27" cy="27" r="17"/><line x1="14" y1="35" x2="14" y2="27"/><line x1="21" y1="35" x2="21" y2="21"/><line x1="28" y1="35" x2="28" y2="25"/><line x1="35" y1="35" x2="35" y2="17"/><path d="M38 38 L50 50"/><circle cx="44" cy="44" r="2.2"/></svg></div>
+            <h3>Backtest Honesty Starter Kit</h3>
+            <p class="kindline">Mini workbook · Trading education</p>
+            <p class="desc">A PaperTrail Academy mini workbook: how to read any trading backtest, spot the red flags in under 20 minutes, and score a claim before you spend another dollar on it. Self-contained — you don't need the full Academy to use it.</p>
+            <p class="specs"><b>The six questions</b> · worked teardown incl. PaperTrail's own · printable Red-Flag Checklist · <b>4 worksheets</b> · 7-day paper-trade journal starter</p>
+            <p class="price"><span class="goldtext">$7</span></p>
+            <p class="price-note">One-time · Download (PDF)</p>
+            <div class="foot">
+              <a class="buy" href="https://buy.stripe.com/28E14pbcF45i2s7csdbEA02" data-checkout-link="live">Buy the Starter Kit — $7</a>
+              <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · About 90 minutes, or 20 for the core · Education only</p>
+            </div>
+          </article>
+          <div class="pedestal" aria-hidden="true"><div class="body"></div><div class="disc"></div><span class="plaque">Check · Score · Decide</span></div>
+        </div>
 
         <!-- Formatting service -->
-        <article class="card tilt-l reveal" id="formatting-service">
-          <div class="cardno"><span>Card No. 04</span><span class="kind">Service · Document formatting</span></div>
-          <h3>Word Document Formatting</h3>
-          <div class="price-row"><span class="price">$99</span><span class="price-note">flat · one document, up to 15 simple pages</span></div>
-          <p class="desc">Your Word document, formatted — same words, same numbers, same tables — with consistent styles, uniform fonts and spacing, styled lists, cleaned-up tables, and page numbers. Formatting only: your content is never edited or rewritten.</p>
-          <ul>
-            <li><strong>$99 flat</strong> — the whole price structure. No tiers, no per-page rates</li>
-            <li><strong>Integrity-checked before delivery</strong>: an automated checker compares the formatted file against your original and flags any changed wording, number, or table order</li>
-            <li><strong>One revision included</strong> — one round of formatting adjustments</li>
-            <li>Accepts public, synthetic, or self-sanitized material; .docx in, .docx out</li>
-            <li><strong>No fixed turnaround</strong> — timing is confirmed in writing before any payment</li>
-          </ul>
-          <div class="foot">
-            <a class="buy" href="mailto:hello@quietpaid.com?subject=Formatting%20service%20—%20order%20request">Order by email — $99 flat</a>
-            <p class="fineprint">Timing confirmed in writing first · You pay by Stripe invoice only after that confirmation</p>
-          </div>
-        </article>
+        <div class="piece reveal">
+          <article class="card" id="formatting-service">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 56 56"><path d="M12 8 H36 L44 15 V46 H12 Z"/><line x1="19" y1="19" x2="37" y2="19"/><line x1="19" y1="26" x2="37" y2="26"/><line x1="19" y1="33" x2="30" y2="33"/><path d="M34 44 L48 30 L52 34 L38 48 L32 49 Z"/></svg></div>
+            <h3>Word Document Formatting</h3>
+            <p class="kindline">Service · Document formatting</p>
+            <p class="desc">Your Word document, formatted — same words, same numbers, same tables — with consistent styles, uniform fonts and spacing, styled lists, cleaned-up tables, and page numbers. Formatting only: your content is never edited or rewritten.</p>
+            <p class="specs"><b>$99 flat</b> · one document up to 15 simple pages · <b>integrity-checked</b> against your original · one revision included · .docx in, .docx out · public, synthetic, or self-sanitized material</p>
+            <p class="price"><span class="goldtext">$99</span></p>
+            <p class="price-note">Flat · Timing confirmed before payment</p>
+            <div class="foot">
+              <a class="buy ghostbtn" href="mailto:hello@quietpaid.com?subject=Formatting%20service%20—%20order%20request">Order by email — $99 flat</a>
+              <p class="fineprint">Timing confirmed in writing first · You pay by Stripe invoice only after that confirmation · No fixed turnaround</p>
+            </div>
+          </article>
+          <div class="pedestal" aria-hidden="true"><div class="body"></div><div class="disc"></div><span class="plaque">Format · Verify · Deliver</span></div>
+        </div>
 
       </div>
 
@@ -373,10 +388,10 @@ footer p{color:var(--muted);font-size:.95rem}
   </section>
 
   <!-- HONEST DISCLOSURE -->
-  <section id="honest" style="padding-top:6px">
+  <section id="honest">
     <div class="wrap">
       <div class="disclosure reveal">
-        <h3>The honest part — read before buying the trading products <span class="stamp" aria-hidden="true">Read first</span></h3>
+        <h3>The honest part — read before buying the trading products <span class="sealstamp" aria-hidden="true">Read first</span></h3>
         <p>PaperTrail Academy and the Backtest Honesty Starter Kit teach how automated trading bots are designed, backtested, and risk-managed — <strong>including the full results of our own testing, where our bots did not beat the market.</strong> In our own backtests, the four-bot blend returned about <strong>11% a year since 2021 versus about 15.5% for the S&amp;P 500</strong> over the same window. The complete backtest report, with all caveats, is included whole in the Academy bundle.</p>
         <p><strong>Education only.</strong> These products are not financial advice, not signals, and not a promise of profit. If you want a course that promises profits, this isn't it. If you want to learn how this actually works — including how a real program measured itself and fell short — that's exactly what's inside.</p>
       </div>
@@ -384,22 +399,22 @@ footer p{color:var(--muted);font-size:.95rem}
   </section>
 
   <!-- HOW IT WORKS -->
-  <section style="padding-top:6px">
+  <section>
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="kicker">How buying works</span>
         <h2>Three steps, no account, no surprises</h2>
       </div>
       <div class="steps reveal">
-        <div class="step"><div class="num">1.</div><h3>Pay on Stripe's page</h3><p>The Buy button takes you to a secure Stripe checkout for exactly the price on the card. Quietpaid never sees or stores your card details.</p></div>
-        <div class="step"><div class="num">2.</div><h3>Get your download by email</h3><p>After payment, we email your download link from hello@quietpaid.com — usually within the hour, always within one business day. Save the file; it's yours to keep.</p></div>
-        <div class="step"><div class="num">3.</div><h3>Stuck? Email a human</h3><p>If a file won't open or a download fails, email <a href="mailto:hello@quietpaid.com">hello@quietpaid.com</a> and we'll sort it out. The refund policy below applies to every order.</p></div>
+        <div class="step"><div class="num"><span class="goldtext">1</span></div><h3>Pay on Stripe's page</h3><p>The Buy button takes you to a secure Stripe checkout for exactly the price on the card. Quietpaid never sees or stores your card details.</p></div>
+        <div class="step"><div class="num"><span class="goldtext">2</span></div><h3>Get your download by email</h3><p>After payment, we email your download link from hello@quietpaid.com — usually within the hour, always within one business day. Save the file; it's yours to keep.</p></div>
+        <div class="step"><div class="num"><span class="goldtext">3</span></div><h3>Stuck? Email a human</h3><p>If a file won't open or a download fails, email <a href="mailto:hello@quietpaid.com">hello@quietpaid.com</a> and we'll sort it out. The refund policy below applies to every order.</p></div>
       </div>
     </div>
   </section>
 
   <!-- POLICIES -->
-  <section id="policies" style="padding-top:6px">
+  <section id="policies">
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="kicker">The fine print, in plain type</span>
@@ -434,7 +449,7 @@ footer p{color:var(--muted);font-size:.95rem}
   </section>
 
   <!-- FAQ -->
-  <section id="faq" style="padding-top:6px">
+  <section id="faq">
     <div class="wrap" style="max-width:820px">
       <div class="sec-head reveal">
         <span class="kicker">Questions</span>
@@ -479,7 +494,7 @@ footer p{color:var(--muted);font-size:.95rem}
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="wordmark" href="#top">Quietpaid</a>
+        <a class="wordmark" href="#top">Quiet<i>paid</i></a>
         <p style="margin-top:10px">Honest digital tools for traders &amp; small businesses.<br>Sold and delivered by Quietpaid.</p>
       </div>
       <div class="foot-links">
@@ -490,7 +505,7 @@ footer p{color:var(--muted);font-size:.95rem}
         <a href="mailto:hello@quietpaid.com">hello@quietpaid.com</a>
       </div>
     </div>
-    <p class="copyright"><span>© 2026 Quietpaid. All prices in USD. Trading products are education only — not financial advice, and not a promise of profit.</span><span class="colophon">Set in Fraunces &amp; Newsreader · Struck in gold · Made with care</span></p>
+    <p class="copyright"><span>© 2026 Quietpaid. All prices in USD. Trading products are education only — not financial advice, and not a promise of profit.</span><span class="colophon">Set in Playfair Display · Struck in gold · Made with care</span></p>
   </div>
 </footer>
 
@@ -512,9 +527,9 @@ footer p{color:var(--muted);font-size:.95rem}
     if(unlocked) return; unlocked=true;
     try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; }
   }
-  ['pointerdown','keydown'].forEach(function(ev){window.addEventListener(ev,unlock,{once:false,passive:true});});
+  ['pointerdown','keydown'].forEach(function(ev){window.addEventListener(ev,unlock,{passive:true});});
   function thump(){
-    if(!soundOn||!actx||actx.state==='suspended'&&!unlocked) return;
+    if(!soundOn||!actx) return;
     if(actx.state==='suspended'){actx.resume();}
     var t=actx.currentTime;
     var osc=actx.createOscillator(), g=actx.createGain();
@@ -544,13 +559,7 @@ footer p{color:var(--muted);font-size:.95rem}
     if(soundOn){unlock(); tick();}
   });}
 
-  /* ---- hero stamps slam in, staggered ---- */
-  var stamps=document.querySelectorAll('[data-stamp]');
-  stamps.forEach(function(s,i){
-    setTimeout(function(){ s.classList.add('slam'); if(unlocked) setTimeout(thump,300); }, 350+i*260);
-  });
-
-  /* ---- buy buttons: a stamp tick on press ---- */
+  /* ---- buy buttons: a seal thump on press, a tick on hover ---- */
   document.querySelectorAll('.buy').forEach(function(b){
     b.addEventListener('pointerdown',function(){ if(unlocked) thump(); });
     b.addEventListener('mouseenter',function(){ if(unlocked) tick(); });
