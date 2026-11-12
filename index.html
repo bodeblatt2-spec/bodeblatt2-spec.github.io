@@ -72,7 +72,7 @@ nav.mainnav .dot{color:var(--gold);font-size:.6rem}
 
 /* ---------- hero ---------- */
 .hero{position:relative;text-align:center;padding:84px 0 30px;overflow:hidden}
-.hero .seal-watermark{position:absolute;left:50%;top:8px;transform:translateX(-50%);width:min(560px,92vw);opacity:.07;pointer-events:none;filter:blur(.4px)}
+.hero .seal-watermark{position:absolute;left:50%;top:-6px;transform:translateX(-50%);width:min(640px,96vw);opacity:.12;pointer-events:none}
 .hero .dossier{position:relative;font-family:var(--sans);letter-spacing:.3em;text-transform:uppercase;font-size:.7rem;font-weight:600;color:var(--muted)}
 .hero h1{position:relative;font-family:var(--serif);font-weight:700;font-size:clamp(2.55rem,6.6vw,4.7rem);line-height:1.04;letter-spacing:.015em;margin:30px auto 0;max-width:1020px;text-transform:uppercase}
 .hero .sub{position:relative;max-width:640px;margin:26px auto 0;font-size:1.06rem;color:var(--cream2);font-weight:300}
@@ -130,14 +130,15 @@ section{padding:64px 0 8px}
 .buy.ghostbtn{background:transparent;color:var(--gold-hi);box-shadow:none}
 .buy.ghostbtn:hover{background:rgba(201,162,74,.1)}
 .card .fineprint{color:var(--faint);font-size:.82rem;text-align:center;margin-top:11px;font-weight:300}
-.pedestal{position:relative;height:52px;margin-top:14px}
-.pedestal .disc{position:absolute;left:50%;transform:translateX(-50%);top:0;width:78%;height:26px;border-radius:50%;
-  background:radial-gradient(ellipse at 50% 42%,#5a4a26 0%,#2c2313 46%,#14100a 78%,#0a0806 100%);
-  box-shadow:0 0 34px rgba(238,217,160,.34),0 0 8px rgba(238,217,160,.4),inset 0 2px 7px rgba(238,217,160,.4)}
-.pedestal .body{position:absolute;left:50%;transform:translateX(-50%);top:12px;width:78%;height:38px;
-  background:linear-gradient(180deg,#241c10 0%,#171208 55%,#0a0806 100%);border-radius:0 0 10px 10px;
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 30%);mask-image:linear-gradient(180deg,transparent 0,#000 30%)}
-.pedestal .plaque{position:absolute;left:50%;transform:translateX(-50%);top:24px;background:#0d0a06;border:1px solid var(--line-soft);padding:5px 14px 4px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;font-weight:600;color:var(--gold-hi);white-space:nowrap;z-index:2}
+.pedestal{position:relative;height:70px;margin-top:16px}
+.pedestal .body{position:absolute;left:50%;transform:translateX(-50%);top:11px;width:76%;height:56px;border-radius:4px 4px 12px 12px;
+  background:linear-gradient(180deg,#3a2c15 0%,#241a0c 26%,#171106 58%,#0b0805 100%);
+  box-shadow:inset 26px 0 34px rgba(0,0,0,.55),inset -26px 0 34px rgba(0,0,0,.55),inset 0 -14px 22px rgba(0,0,0,.6),0 18px 26px rgba(0,0,0,.5)}
+.pedestal .body::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,transparent 30%,rgba(238,217,160,.10) 50%,transparent 70%)}
+.pedestal .disc{position:absolute;left:50%;transform:translateX(-50%);top:0;width:82%;height:24px;border-radius:50%;z-index:1;
+  background:radial-gradient(ellipse at 50% 42%,#6b562a 0%,#33270f 48%,#171106 80%,#0a0806 100%);
+  box-shadow:0 0 38px rgba(238,217,160,.4),0 0 10px rgba(238,217,160,.5),inset 0 2px 8px rgba(238,217,160,.5)}
+.pedestal .plaque{position:absolute;left:50%;transform:translateX(-50%);top:32px;background:#0d0a06;border:1px solid var(--line-soft);padding:5px 14px 4px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;font-weight:600;color:var(--gold-hi);white-space:nowrap;z-index:2;box-shadow:0 3px 10px rgba(0,0,0,.5)}
 
 /* ---------- compare ---------- */
 .compare{margin-top:36px;border:1px solid var(--line-soft);border-radius:12px;background:var(--panel);padding:10px 34px 16px}
