@@ -130,9 +130,9 @@ section{padding:64px 0 8px}
 .buy.ghostbtn{background:transparent;color:var(--gold-hi);box-shadow:none}
 .buy.ghostbtn:hover{background:rgba(201,162,74,.1)}
 .card .fineprint{color:var(--faint);font-size:.82rem;text-align:center;margin-top:11px;font-weight:300}
-.pedestal{position:relative;height:150px;margin-top:4px}
-.pedestal::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-16px;width:104%;height:40px;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(238,217,160,.30),rgba(238,217,160,0) 68%);filter:blur(4px)}
-.pedestal .body{position:absolute;left:50%;transform:translateX(-50%);top:15px;width:78%;height:112px;border-radius:5px 5px 10px 10px;z-index:1;
+.pedestal{position:relative;height:205px;margin-top:-12px;z-index:2}
+.pedestal::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-20px;width:104%;height:44px;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(238,217,160,.38),rgba(238,217,160,0) 68%);filter:blur(4px)}
+.pedestal .body{position:absolute;left:50%;transform:translateX(-50%);top:15px;width:78%;height:167px;border-radius:5px 5px 10px 10px;z-index:1;
   background:
     linear-gradient(90deg,rgba(74,64,44,.55) 0%,rgba(74,64,44,0) 16%,rgba(255,252,240,.85) 38%,rgba(255,255,255,.95) 50%,rgba(255,252,240,.7) 62%,rgba(74,64,44,0) 84%,rgba(74,64,44,.55) 100%),
     repeating-linear-gradient(94deg,rgba(120,104,72,.13) 0 2px,transparent 2px 30px),
@@ -151,7 +151,7 @@ section{padding:64px 0 8px}
     radial-gradient(ellipse at 50% 38%,#fffdf4 0%,#f6efdb 38%,#e6dabd 68%,#cbb489 100%);
   background-color:#e9dfc2;
   box-shadow:0 0 40px rgba(238,217,160,.45),0 2px 0 rgba(201,162,74,.9),0 4px 10px rgba(0,0,0,.4),inset 0 2px 8px rgba(255,255,255,.95),inset 0 -4px 8px rgba(140,120,80,.45)}
-.pedestal .plaque{position:absolute;left:50%;transform:translateX(-50%);top:68px;background:#0d0a06;border:1px solid rgba(238,217,160,.65);padding:5px 14px 4px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;font-weight:600;color:var(--gold-hi);white-space:nowrap;z-index:3;box-shadow:0 3px 10px rgba(0,0,0,.45)}
+.pedestal .plaque{position:absolute;left:50%;transform:translateX(-50%);top:96px;background:#0d0a06;border:1px solid rgba(238,217,160,.65);padding:5px 14px 4px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;font-weight:600;color:var(--gold-hi);white-space:nowrap;z-index:3;box-shadow:0 3px 10px rgba(0,0,0,.45)}
 
 /* ---------- compare ---------- */
 .compare{margin-top:36px;border:1px solid var(--line-soft);border-radius:12px;background:var(--panel);padding:10px 34px 16px}
