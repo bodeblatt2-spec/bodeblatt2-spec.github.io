@@ -130,15 +130,21 @@ section{padding:64px 0 8px}
 .buy.ghostbtn{background:transparent;color:var(--gold-hi);box-shadow:none}
 .buy.ghostbtn:hover{background:rgba(201,162,74,.1)}
 .card .fineprint{color:var(--faint);font-size:.82rem;text-align:center;margin-top:11px;font-weight:300}
-.pedestal{position:relative;height:70px;margin-top:16px}
-.pedestal .body{position:absolute;left:50%;transform:translateX(-50%);top:11px;width:76%;height:56px;border-radius:4px 4px 12px 12px;
-  background:linear-gradient(180deg,#3a2c15 0%,#241a0c 26%,#171106 58%,#0b0805 100%);
-  box-shadow:inset 26px 0 34px rgba(0,0,0,.55),inset -26px 0 34px rgba(0,0,0,.55),inset 0 -14px 22px rgba(0,0,0,.6),0 18px 26px rgba(0,0,0,.5)}
-.pedestal .body::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,transparent 30%,rgba(238,217,160,.10) 50%,transparent 70%)}
-.pedestal .disc{position:absolute;left:50%;transform:translateX(-50%);top:0;width:82%;height:24px;border-radius:50%;z-index:1;
-  background:radial-gradient(ellipse at 50% 42%,#6b562a 0%,#33270f 48%,#171106 80%,#0a0806 100%);
-  box-shadow:0 0 38px rgba(238,217,160,.4),0 0 10px rgba(238,217,160,.5),inset 0 2px 8px rgba(238,217,160,.5)}
-.pedestal .plaque{position:absolute;left:50%;transform:translateX(-50%);top:32px;background:#0d0a06;border:1px solid var(--line-soft);padding:5px 14px 4px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;font-weight:600;color:var(--gold-hi);white-space:nowrap;z-index:2;box-shadow:0 3px 10px rgba(0,0,0,.5)}
+.pedestal{position:relative;height:78px;margin-top:18px}
+.pedestal::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-8px;width:96%;height:30px;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(238,217,160,.20),rgba(238,217,160,0) 68%);filter:blur(3px)}
+.pedestal .body{position:absolute;left:50%;transform:translateX(-50%);top:12px;width:76%;height:60px;border-radius:4px 4px 14px 14px;z-index:1;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,0) 18%,rgba(238,217,160,.20) 50%,rgba(0,0,0,0) 82%,rgba(0,0,0,.72) 100%),
+    repeating-linear-gradient(97deg,rgba(238,217,160,.05) 0 2px,transparent 2px 26px),
+    linear-gradient(180deg,#4a3a1c 0%,#2b2010 24%,#1a1309 55%,#0d0906 100%);
+  border-left:1px solid rgba(238,217,160,.4);border-right:1px solid rgba(238,217,160,.4);
+  box-shadow:inset 0 -16px 24px rgba(0,0,0,.65),0 20px 30px rgba(0,0,0,.55)}
+.pedestal .base{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:80%;height:16px;border-radius:50%;z-index:1;
+  background:radial-gradient(ellipse at 50% 38%,#3d2f16 0%,#191207 55%,#080604 100%);border-bottom:1px solid rgba(238,217,160,.35)}
+.pedestal .disc{position:absolute;left:50%;transform:translateX(-50%);top:0;width:84%;height:26px;border-radius:50%;z-index:2;
+  background:radial-gradient(ellipse at 50% 40%,#a5823e 0%,#5f4718 42%,#241a09 78%,#100b05 100%);
+  box-shadow:0 0 44px rgba(238,217,160,.5),0 0 12px rgba(238,217,160,.6),inset 0 2px 9px rgba(247,236,200,.65),inset 0 -3px 7px rgba(0,0,0,.5)}
+.pedestal .plaque{position:absolute;left:50%;transform:translateX(-50%);top:36px;background:#0d0a06;border:1px solid rgba(238,217,160,.5);padding:5px 14px 4px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;font-weight:600;color:var(--gold-hi);white-space:nowrap;z-index:3;box-shadow:0 3px 10px rgba(0,0,0,.55)}
 
 /* ---------- compare ---------- */
 .compare{margin-top:36px;border:1px solid var(--line-soft);border-radius:12px;background:var(--panel);padding:10px 34px 16px}
@@ -319,7 +325,7 @@ footer p{color:var(--muted);font-size:.93rem}
               <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · Education only — not financial advice</p>
             </div>
           </article>
-          <div class="pedestal" aria-hidden="true"><div class="body"></div><div class="disc"></div><span class="plaque">Foundations · Advanced</span></div>
+          <div class="pedestal" aria-hidden="true"><div class="base"></div><div class="body"></div><div class="disc"></div><span class="plaque">Foundations · Advanced</span></div>
         </div>
 
         <!-- Invoice Chaser Pro -->
@@ -337,7 +343,7 @@ footer p{color:var(--muted);font-size:.93rem}
               <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · Works with ChatGPT, Claude, or similar · Not software</p>
             </div>
           </article>
-          <div class="pedestal" aria-hidden="true"><div class="body"></div><div class="disc"></div><span class="plaque">Draft · Review · Send</span></div>
+          <div class="pedestal" aria-hidden="true"><div class="base"></div><div class="body"></div><div class="disc"></div><span class="plaque">Draft · Review · Send</span></div>
         </div>
 
         <!-- Backtest Honesty Starter Kit -->
@@ -355,7 +361,7 @@ footer p{color:var(--muted);font-size:.93rem}
               <p class="fineprint">Secure checkout by Stripe · Download link emailed after payment — usually within the hour, always within one business day · About 90 minutes, or 20 for the core · Education only</p>
             </div>
           </article>
-          <div class="pedestal" aria-hidden="true"><div class="body"></div><div class="disc"></div><span class="plaque">Check · Score · Decide</span></div>
+          <div class="pedestal" aria-hidden="true"><div class="base"></div><div class="body"></div><div class="disc"></div><span class="plaque">Check · Score · Decide</span></div>
         </div>
 
         <!-- Formatting service -->
@@ -373,7 +379,7 @@ footer p{color:var(--muted);font-size:.93rem}
               <p class="fineprint">Timing confirmed in writing first · You pay by Stripe invoice only after that confirmation · No fixed turnaround</p>
             </div>
           </article>
-          <div class="pedestal" aria-hidden="true"><div class="body"></div><div class="disc"></div><span class="plaque">Format · Verify · Deliver</span></div>
+          <div class="pedestal" aria-hidden="true"><div class="base"></div><div class="body"></div><div class="disc"></div><span class="plaque">Format · Verify · Deliver</span></div>
         </div>
 
       </div>
