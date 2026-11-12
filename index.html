@@ -130,21 +130,28 @@ section{padding:64px 0 8px}
 .buy.ghostbtn{background:transparent;color:var(--gold-hi);box-shadow:none}
 .buy.ghostbtn:hover{background:rgba(201,162,74,.1)}
 .card .fineprint{color:var(--faint);font-size:.82rem;text-align:center;margin-top:11px;font-weight:300}
-.pedestal{position:relative;height:78px;margin-top:18px}
-.pedestal::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-8px;width:96%;height:30px;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(238,217,160,.20),rgba(238,217,160,0) 68%);filter:blur(3px)}
-.pedestal .body{position:absolute;left:50%;transform:translateX(-50%);top:12px;width:76%;height:60px;border-radius:4px 4px 14px 14px;z-index:1;
+.pedestal{position:relative;height:150px;margin-top:4px}
+.pedestal::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-16px;width:104%;height:40px;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(238,217,160,.30),rgba(238,217,160,0) 68%);filter:blur(4px)}
+.pedestal .body{position:absolute;left:50%;transform:translateX(-50%);top:15px;width:78%;height:112px;border-radius:5px 5px 10px 10px;z-index:1;
   background:
-    linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,0) 18%,rgba(238,217,160,.20) 50%,rgba(0,0,0,0) 82%,rgba(0,0,0,.72) 100%),
-    repeating-linear-gradient(97deg,rgba(238,217,160,.05) 0 2px,transparent 2px 26px),
-    linear-gradient(180deg,#4a3a1c 0%,#2b2010 24%,#1a1309 55%,#0d0906 100%);
-  border-left:1px solid rgba(238,217,160,.4);border-right:1px solid rgba(238,217,160,.4);
-  box-shadow:inset 0 -16px 24px rgba(0,0,0,.65),0 20px 30px rgba(0,0,0,.55)}
-.pedestal .base{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:80%;height:16px;border-radius:50%;z-index:1;
-  background:radial-gradient(ellipse at 50% 38%,#3d2f16 0%,#191207 55%,#080604 100%);border-bottom:1px solid rgba(238,217,160,.35)}
-.pedestal .disc{position:absolute;left:50%;transform:translateX(-50%);top:0;width:84%;height:26px;border-radius:50%;z-index:2;
-  background:radial-gradient(ellipse at 50% 40%,#a5823e 0%,#5f4718 42%,#241a09 78%,#100b05 100%);
-  box-shadow:0 0 44px rgba(238,217,160,.5),0 0 12px rgba(238,217,160,.6),inset 0 2px 9px rgba(247,236,200,.65),inset 0 -3px 7px rgba(0,0,0,.5)}
-.pedestal .plaque{position:absolute;left:50%;transform:translateX(-50%);top:36px;background:#0d0a06;border:1px solid rgba(238,217,160,.5);padding:5px 14px 4px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;font-weight:600;color:var(--gold-hi);white-space:nowrap;z-index:3;box-shadow:0 3px 10px rgba(0,0,0,.55)}
+    linear-gradient(90deg,rgba(74,64,44,.55) 0%,rgba(74,64,44,0) 16%,rgba(255,252,240,.85) 38%,rgba(255,255,255,.95) 50%,rgba(255,252,240,.7) 62%,rgba(74,64,44,0) 84%,rgba(74,64,44,.55) 100%),
+    repeating-linear-gradient(94deg,rgba(120,104,72,.13) 0 2px,transparent 2px 30px),
+    repeating-linear-gradient(83deg,rgba(120,104,72,.08) 0 1px,transparent 1px 47px),
+    linear-gradient(180deg,#f4edda 0%,#e9e0c6 30%,#ddd0ac 62%,#c9b98f 100%);
+  border-left:1px solid rgba(201,162,74,.55);border-right:1px solid rgba(201,162,74,.55);
+  box-shadow:inset 0 -18px 26px rgba(90,76,50,.35),0 22px 34px rgba(0,0,0,.5)}
+.pedestal .body::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(180deg,#f2dd9e,#c9a24a 60%,#8a6c26);box-shadow:0 1px 3px rgba(0,0,0,.35)}
+.pedestal .body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(180deg,#8a6c26,#c9a24a 45%,#f2dd9e);box-shadow:0 -1px 3px rgba(0,0,0,.3)}
+.pedestal .base{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:88%;height:26px;border-radius:50%;z-index:1;
+  background:radial-gradient(ellipse at 50% 34%,#faf5e6 0%,#e7dcbf 45%,#c3b184 78%,#9a865e 100%);border-bottom:2px solid rgba(201,162,74,.75);
+  box-shadow:0 6px 18px rgba(0,0,0,.5),inset 0 2px 5px rgba(255,255,255,.8)}
+.pedestal .disc{position:absolute;left:50%;transform:translateX(-50%);top:0;width:90%;height:30px;border-radius:50%;z-index:2;
+  background:
+    repeating-linear-gradient(96deg,rgba(120,104,72,.10) 0 2px,transparent 2px 34px),
+    radial-gradient(ellipse at 50% 38%,#fffdf4 0%,#f6efdb 38%,#e6dabd 68%,#cbb489 100%);
+  background-color:#e9dfc2;
+  box-shadow:0 0 40px rgba(238,217,160,.45),0 2px 0 rgba(201,162,74,.9),0 4px 10px rgba(0,0,0,.4),inset 0 2px 8px rgba(255,255,255,.95),inset 0 -4px 8px rgba(140,120,80,.45)}
+.pedestal .plaque{position:absolute;left:50%;transform:translateX(-50%);top:68px;background:#0d0a06;border:1px solid rgba(238,217,160,.65);padding:5px 14px 4px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;font-weight:600;color:var(--gold-hi);white-space:nowrap;z-index:3;box-shadow:0 3px 10px rgba(0,0,0,.45)}
 
 /* ---------- compare ---------- */
 .compare{margin-top:36px;border:1px solid var(--line-soft);border-radius:12px;background:var(--panel);padding:10px 34px 16px}
