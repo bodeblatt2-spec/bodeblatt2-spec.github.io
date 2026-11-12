@@ -130,28 +130,22 @@ section{padding:64px 0 8px}
 .buy.ghostbtn{background:transparent;color:var(--gold-hi);box-shadow:none}
 .buy.ghostbtn:hover{background:rgba(201,162,74,.1)}
 .card .fineprint{color:var(--faint);font-size:.82rem;text-align:center;margin-top:11px;font-weight:300}
-.pedestal{position:relative;height:205px;margin-top:-12px;z-index:2}
-.pedestal::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-20px;width:104%;height:44px;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(238,217,160,.38),rgba(238,217,160,0) 68%);filter:blur(4px)}
-.pedestal .body{position:absolute;left:50%;transform:translateX(-50%);top:15px;width:78%;height:167px;border-radius:5px 5px 10px 10px;z-index:1;
+.pedestal{position:relative;height:74px;margin-top:12px}
+.pedestal::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-13px;width:112%;height:34px;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(255,226,160,.34),rgba(255,226,160,0) 66%);filter:blur(4px)}
+.pedestal .body{position:absolute;left:50%;transform:translateX(-50%);top:13px;width:88%;height:48px;border-radius:5px 5px 12px 12px;z-index:1;
   background:
-    linear-gradient(90deg,rgba(74,64,44,.55) 0%,rgba(74,64,44,0) 16%,rgba(255,252,240,.85) 38%,rgba(255,255,255,.95) 50%,rgba(255,252,240,.7) 62%,rgba(74,64,44,0) 84%,rgba(74,64,44,.55) 100%),
-    repeating-linear-gradient(94deg,rgba(120,104,72,.13) 0 2px,transparent 2px 30px),
-    repeating-linear-gradient(83deg,rgba(120,104,72,.08) 0 1px,transparent 1px 47px),
-    linear-gradient(180deg,#f4edda 0%,#e9e0c6 30%,#ddd0ac 62%,#c9b98f 100%);
-  border-left:1px solid rgba(201,162,74,.55);border-right:1px solid rgba(201,162,74,.55);
-  box-shadow:inset 0 -18px 26px rgba(90,76,50,.35),0 22px 34px rgba(0,0,0,.5)}
-.pedestal .body::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(180deg,#f2dd9e,#c9a24a 60%,#8a6c26);box-shadow:0 1px 3px rgba(0,0,0,.35)}
-.pedestal .body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(180deg,#8a6c26,#c9a24a 45%,#f2dd9e);box-shadow:0 -1px 3px rgba(0,0,0,.3)}
-.pedestal .base{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:88%;height:26px;border-radius:50%;z-index:1;
-  background:radial-gradient(ellipse at 50% 34%,#faf5e6 0%,#e7dcbf 45%,#c3b184 78%,#9a865e 100%);border-bottom:2px solid rgba(201,162,74,.75);
-  box-shadow:0 6px 18px rgba(0,0,0,.5),inset 0 2px 5px rgba(255,255,255,.8)}
-.pedestal .disc{position:absolute;left:50%;transform:translateX(-50%);top:0;width:90%;height:30px;border-radius:50%;z-index:2;
-  background:
-    repeating-linear-gradient(96deg,rgba(120,104,72,.10) 0 2px,transparent 2px 34px),
-    radial-gradient(ellipse at 50% 38%,#fffdf4 0%,#f6efdb 38%,#e6dabd 68%,#cbb489 100%);
-  background-color:#e9dfc2;
-  box-shadow:0 0 40px rgba(238,217,160,.45),0 2px 0 rgba(201,162,74,.9),0 4px 10px rgba(0,0,0,.4),inset 0 2px 8px rgba(255,255,255,.95),inset 0 -4px 8px rgba(140,120,80,.45)}
-.pedestal .plaque{position:absolute;left:50%;transform:translateX(-50%);top:96px;background:#0d0a06;border:1px solid rgba(238,217,160,.65);padding:5px 14px 4px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;font-weight:600;color:var(--gold-hi);white-space:nowrap;z-index:3;box-shadow:0 3px 10px rgba(0,0,0,.45)}
+    linear-gradient(90deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,0) 20%,rgba(255,240,205,.13) 50%,rgba(0,0,0,0) 80%,rgba(0,0,0,.8) 100%),
+    repeating-linear-gradient(93deg,rgba(230,225,210,.05) 0 2px,transparent 2px 30px),
+    repeating-linear-gradient(84deg,rgba(230,225,210,.035) 0 1px,transparent 1px 49px),
+    linear-gradient(180deg,#33302a 0%,#1d1a16 34%,#100e0b 68%,#070605 100%);
+  border-left:1px solid rgba(238,217,160,.28);border-right:1px solid rgba(238,217,160,.28);
+  box-shadow:inset 0 -14px 20px rgba(0,0,0,.7),0 18px 28px rgba(0,0,0,.55)}
+.pedestal .base{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:88%;height:18px;border-radius:50%;z-index:1;
+  background:radial-gradient(ellipse at 50% 36%,#262219 0%,#12100c 55%,#060504 100%);border-bottom:1px solid rgba(238,217,160,.22)}
+.pedestal .disc{position:absolute;left:50%;transform:translateX(-50%);top:0;width:92%;height:27px;border-radius:50%;z-index:2;
+  background:radial-gradient(ellipse at 50% 42%,#ffedbe 0%,#e8cf96 16%,#8a744c 36%,#3a3125 62%,#171310 88%,#0c0a08 100%);
+  box-shadow:0 0 46px rgba(255,226,160,.5),0 0 14px rgba(255,226,160,.55),inset 0 2px 7px rgba(255,248,225,.85),inset 0 -3px 7px rgba(0,0,0,.6)}
+.pedestal .plaque{position:absolute;left:50%;transform:translateX(-50%);top:44px;background:#0b0906;border:1px solid rgba(238,217,160,.55);padding:5px 14px 4px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;font-weight:600;color:var(--gold-hi);white-space:nowrap;z-index:3;box-shadow:0 3px 10px rgba(0,0,0,.6)}
 
 /* ---------- compare ---------- */
 .compare{margin-top:36px;border:1px solid var(--line-soft);border-radius:12px;background:var(--panel);padding:10px 34px 16px}
